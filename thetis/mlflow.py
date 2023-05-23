@@ -218,10 +218,6 @@ def thetis_mlflow(
         thetiscore.license.errors.LicenseExpiredError: if the license has expired.
     """
 
-    import tensorboard as tb
-
-    tb.summary.Writer()
-
     return thetiscore_mlflow(
         config=config,
         predictions=predictions,
