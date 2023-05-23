@@ -30,7 +30,6 @@ extensions = [
     'sphinx.ext.doctest',
     'myst_parser',
     "sphinxjp.themes.basicstrap",
-    "sphinx_needs",
     "sphinxcontrib.bibtex",
 ]
 
