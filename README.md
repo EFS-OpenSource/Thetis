@@ -1,4 +1,4 @@
-![Thetis Logo](docs/source/_static/thetis-logo.png)
+![Thetis Logo](https://github.com/EFS-OpenSource/Thetis/blob/main/docs/source/_static/thetis-logo.png)
 
 --------------------------------------------------------------------------------
 
@@ -7,6 +7,9 @@ certainly know about its weaknesses._
 
 Thetis is a service to examine safety-relevant aspects of AI algorithms (e.g., machine learning or deep learning models)
 for uncertainty consistency (calibration), fairness, data quality, and robustness.
+
+Please visit the [API Documentation Page](https://efs-opensource.github.io/thetis/build/html/index.html) for the 
+complete documentation and detailed backgrounds to the several safety aspects.
 
 ## Installation
 
@@ -26,8 +29,8 @@ the right wheel for installation.
 Download a FREE license at [efs-techhub.com](https://efs-techhub.com) (until August 31st). <br />
 Place the license file either in the working directory of your application or at:
 
-a. Windows: `<User>\\AppData\\Local\\Thetis\\license.dat`
-b. Unix: `~/.local/thetis/license.dat`
+* Windows: `<User>\\AppData\\Local\\Thetis\\license.dat`
+* Unix: `~/.local/thetis/license.dat`
 
 For further information about subscription models and license settings, see [Subscription](https://efs-opensource.github.io/thetis/build/html/subscription.html). <br />
 Your feedback is highly appreciated!

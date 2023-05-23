@@ -13,3 +13,6 @@ User Guide for Thetis
    aspects
    subscription
    compliance
+
+.. include:: /../../README.md
+   :parser: myst_parser.sphinx_
