@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+title: Thetis AI Safety Evaluation Toolbox
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Fabian
+    family-names: Küppers
+    email: fabian.kueppers@efs-techhub.com
+    affiliation: 'e:fs TechHub GmbH'
+    orcid: 'https://orcid.org/0009-0005-9856-7527'
+  - given-names: Jonas
+    family-names: Schneider
+    email: jonas.schneider@efs-techhub.com
+    affiliation: 'e:fs TechHub GmbH'
+  - given-names: Thorsten
+    family-names: Gedicke
+    email: thorsten.gedicke@efs-techhub.com
+    affiliation: 'e:fs TechHub GmbH'
+repository-code: 'https://github.com/EFS-OpenSource/Thetis'
+url: 'https://efs-techhub.com/thetis'
+abstract: >-
+  Service to examine data processing pipelines (e.g.,
+  machine learning or deep learning pipelines) for
+  uncertainty consistency (calibration), fairness, and other
+  safety-relevant aspects.
+keywords:
+  - ai
+  - machine learning
+  - deep learning
+  - fairness
+  - uncertainty calibration
+  - confidence calibration
+  - robustness
+  - explainability
+  - data quality
+  - neural networks
+  - validation

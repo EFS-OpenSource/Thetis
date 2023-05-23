@@ -1,1 +1,1 @@
-thetis-core==0.0.1
+thetiscore==0.0.1
