@@ -2,7 +2,9 @@
 
 --------------------------------------------------------------------------------
 
-<p>Thetis AI Safety Evaluation Service.</p>
+_If Achilles, the nearly invulnerable warrior, represents your AI model, Thetis will
+certainly know about its weaknesses._
+
 Thetis is a service to examine safety-relevant aspects of AI algorithms (e.g., machine learning or deep learning models)
 for uncertainty consistency (calibration), fairness, data quality, and robustness.
 
