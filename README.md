@@ -2,8 +2,7 @@
 
 --------------------------------------------------------------------------------
 
-_If Achilles, the nearly invulnerable warrior, represents your AI model, Thetis will
-certainly know about its weaknesses._
+_Even if your AI is as strong as Achilles, Thetis will certainly know about its weaknesses._
 
 Thetis is a service to examine safety-relevant aspects of AI algorithms (e.g., machine learning or deep learning models)
 for uncertainty consistency (calibration), fairness, data quality, and robustness.
@@ -24,9 +23,7 @@ the right wheel for installation.
 
 ## Get License
 
-<s>Request a license at thetis@efs-techhub.com.</s>
-
-Download a FREE license at [efs-techhub.com](https://efs-techhub.com) (until August 31st). <br />
+Download a FREE license at [efs-techhub.com](https://efs-techhub.com/loesungen/thetis) (until August 31st). <br />
 Place the license file either in the working directory of your application or at:
 
 * Windows: `<User>\\AppData\\Local\\Thetis\\license.dat`
@@ -115,7 +112,7 @@ The library simply expects two Pandas data frames:
   and predictions must match.
 
 For details of the library configuration, see section [Configuration](https://efs-opensource.github.io/thetis/build/html/configuration.html). For the current example, you can download
-the demo configuration file at [efs-techhub.com](https://efs-techhub.com).
+the demo configuration file at [efs-techhub.com](https://efs-techhub.com/loesungen/thetis).
 
 The final rating and recommendations for mitigation strategies can be found in the `result` JSON-like dictionary
 for the different evaluation aspects:
@@ -130,7 +127,7 @@ for the different evaluation aspects:
 
 Thetis is also capable to evaluate AI safety for modern (image-based) object detectors.
 We utilize a [Faster R-CNN by Torchvision](https://pytorch.org/vision/main/models/faster_rcnn.html) in conjunction
-with a demo data set ([Download here](https://efs-techhub.com)) to demonstrate the evaluation process for
+with a demo data set ([Download here](https://efs-techhub.com/loesungen/thetis)) to demonstrate the evaluation process for
 object detectors. You can easily adapt your own use-case by following the instructions below:
 
 
@@ -158,7 +155,7 @@ categories = np.array(weights.meta["categories"])
 
 Note that the model is pre-trained on the MS COCO data set with several categories. In our example, we only
 work with the categories "person", "bicycle", and "car". In the next step, download and extract
-the [Demo Detection Data Set](https://efs-techhub.com) which is artificially generated using
+the [Demo Detection Data Set](https://efs-techhub.com/loesungen/thetis) which is artificially generated using
 the [Carla simulation engine](https://carla.org/). After download and extraction, we can load the JSON annotation
 files and run inference with the Torchvision model:
 
@@ -263,7 +260,7 @@ result = thetis(
 
 For details of the library configuration, see section [Configuration](https://efs-opensource.github.io/thetis/build/html/configuration.html). For the current example, the configuration
 file is shipped with the demo data set. Alternatively, you can download
-the demo configuration file at [efs-techhub.com](https://efs-techhub.com).
+the demo configuration file at [efs-techhub.com](https://efs-techhub.com/loesungen/thetis).
 
 The final rating and recommendations for mitigation strategies can be found in the `result` JSON-like dictionary
 for the different evaluation aspects:

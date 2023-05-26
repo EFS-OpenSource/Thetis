@@ -4,7 +4,7 @@ Configuration
 =============
 
 Thetis needs a YAML configuration file that specifies several aspects, e.g., the task, available classes, requested
-evaluation aspects, etc. `Download an exemplary configuration file <https://efs-techhub.com>`__ or copy/paste the
+evaluation aspects, etc. `Download an exemplary configuration file <https://efs-techhub.com/loesungen/thetis>`__ or copy/paste the
 following configuration file. An explanation for each configuration aspect can be found below.
 
 
