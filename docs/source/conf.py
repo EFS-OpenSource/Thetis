@@ -1,7 +1,10 @@
-# Configuration file for the Sphinx documentation builder.
+#  ****************************************************************************
+#  Configuration file for the Sphinx documentation builder.
 #
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
+#  @copyright (c) 2023 e:fs TechHub GmbH. All rights reserved.
+#  Dr.-Ludwig-Kraus-Straße 6, 85080 Gaimersheim, DE, https://www.efs-techhub.com
+#  ****************************************************************************
+
 
 import os
 import sys
