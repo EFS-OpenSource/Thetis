@@ -49,7 +49,7 @@ file = "README.md"
 content-type = "text/markdown"
 
 [project.urls]
-Homepage = "https://efs-techhub.com/loesungen/thetis"
+Homepage = "https://efs-techhub.com/efs-portfolio/loesungen/thetis"
 GitHub = "https://github.com/EFS-OpenSource/Thetis"
 Documentation = "https://efs-opensource.github.io/Thetis"
 

@@ -30,7 +30,7 @@ Prerequisites
 
      $ pip install thetis
 
-2. | Download a FREE license at `efs-techhub.com <https://efs-techhub.com/loesungen/thetis>`__ (until August 31st).
+2. | Download a FREE license at `efs-techhub.com <https://efs-techhub.com/efs-portfolio/loesungen/thetis>`__ (until August 31st).
    | Place the license file either in the working directory of your application or at:
 
    a. Windows: :code:`<User>\\AppData\\Local\\Thetis\\license.dat`
@@ -124,7 +124,7 @@ The library simply expects two Pandas data frames:
   and predictions must match.
 
 For details of the library configuration, see section :ref:`Configuration`. For the current example, you can download
-the demo configuration file at `efs-techhub.com <https://efs-techhub.com/loesungen/thetis>`__.
+the demo configuration file at `efs-techhub.com <https://efs-techhub.com/efs-portfolio/loesungen/thetis>`__.
 
 The final rating and recommendations for mitigation strategies can be found in the :code:`result` JSON-like dictionary
 for the different evaluation aspects:
@@ -140,7 +140,7 @@ Object Detection Example (Image-based)
 
 Thetis is also capable to evaluate AI safety for modern (image-based) object detectors.
 We utilize a `Faster R-CNN by Torchvision <https://pytorch.org/vision/main/models/faster_rcnn.html>`__ in conjunction
-with a demo data set (`Download here <https://efs-techhub.com/loesungen/thetis>`__) to demonstrate the evaluation process for
+with a demo data set (`Download here <https://efs-techhub.com/efs-portfolio/loesungen/thetis>`__) to demonstrate the evaluation process for
 object detectors. You can easily adapt your own use-case by following the instructions below:
 
 
@@ -171,7 +171,7 @@ First, we need to load and initialize the `Faster R-CNN by Torchvision <https://
 
 Note that the model is pre-trained on the MS COCO data set with several categories. In our example, we only
 work with the categories "person", "bicycle", and "car". In the next step, download and extract
-the `Demo Detection Data Set <https://efs-techhub.com/loesungen/thetis>`__ which is artificially generated using
+the `Demo Detection Data Set <https://efs-techhub.com/efs-portfolio/loesungen/thetis>`__ which is artificially generated using
 the `Carla simulation engine <https://carla.org/>`__. After download and extraction, we can load the JSON annotation
 files and run inference with the Torchvision model:
 
@@ -281,7 +281,7 @@ with the configuration to the Thetis evaluation routine:
 
 For details of the library configuration, see section :ref:`Configuration`. For the current example, the configuration
 file is shipped with the demo data set. Alternatively, you can download
-the demo configuration file at `efs-techhub.com <https://efs-techhub.com/loesungen/thetis>`__.
+the demo configuration file at `efs-techhub.com <https://efs-techhub.com/efs-portfolio/loesungen/thetis>`__.
 
 The final rating and recommendations for mitigation strategies can be found in the :code:`result` JSON-like dictionary
 for the different evaluation aspects:

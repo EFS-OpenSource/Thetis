@@ -19,7 +19,7 @@ authors:
     email: thorsten.gedicke@efs-techhub.com
     affiliation: 'e:fs TechHub GmbH'
 repository-code: 'https://github.com/EFS-OpenSource/Thetis'
-url: 'https://efs-techhub.com/loesungen/thetis'
+url: 'https://efs-techhub.com/efs-portfolio/loesungen/thetis'
 abstract: >-
   Service to examine data processing pipelines (e.g.,
   machine learning or deep learning pipelines) for
