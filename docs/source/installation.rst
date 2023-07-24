@@ -25,10 +25,10 @@ runtime environment that is used during application execution:
 * <thetis version> describes the desired application version of Thetis.
 * <python tag> describes the Python version which has been used for building the wheel (e.g., "cp38" stands for Python version 3.8).
 * <abi tag> describes the Application Binary Interface (ABI) version for which the wheel has been built (e.g., "cp38" stands for Python version 3.8).
-* <platform tag> describes the platform for which the application has been built (e.g, "linux_x86_64" stands for a Linux OS on a x86 architecture with a 64 bit system).
+* <platform tag> describes the platform for which the application has been built (e.g, "manylinux" works for most Unix-based systems).
 
 Issues & Bugtracking
 ====================
 
 If you experience any issues during installation, running, or handling Thetis, please create an issue on
-`e:fs Github page <https://github.com/efs-OpenSource/thetis>`__.
+`e:fs Github page <https://github.com/efs-OpenSource/thetis>`__ and post the provided stack trace.

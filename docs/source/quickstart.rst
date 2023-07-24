@@ -30,7 +30,7 @@ Prerequisites
 
      $ pip install thetis
 
-2. | Download a FREE license at `efs-techhub.com <https://efs-techhub.com/efs-portfolio/loesungen/thetis>`__ (until August 31st).
+2. | Download an EVALUATION FREE license at `efs-techhub.com <https://efs-techhub.com/efs-portfolio/loesungen/thetis>`__.
    | Place the license file either in the working directory of your application or at:
 
    a. Windows: :code:`<User>\\AppData\\Local\\Thetis\\license.dat`
@@ -61,6 +61,7 @@ The data set is loaded using tools from scikit-learn library:
 
 .. code-block:: python
 
+   import pandas as pd
    from sklearn.datasets import fetch_openml
    from sklearn.model_selection import train_test_split
 
@@ -72,18 +73,22 @@ The data set is loaded using tools from scikit-learn library:
    df_train_cleared = df_train.drop(columns=["education", "race", "sex", "native-country", "relationship", "marital-status"])
    df_test_cleared = df_test.drop(columns=["education", "race", "sex", "native-country", "relationship", "marital-status"])
 
+   # convert categorical columns to class codes with integer representation
+   categorical_columns = ["workclass", "occupation"]
+   df_train_cleared[categorical_columns] = df_train_cleared[categorical_columns].apply(lambda col: pd.Categorical(col).codes)
+   df_test_cleared[categorical_columns] = df_test_cleared[categorical_columns].apply(lambda col: pd.Categorical(col).codes)
+
 This yields two `Pandas <https://pandas.pydata.org/>`__ data frames with a reduced set of information.
 
-In the next step, we train a simple fully-connected neural network on the training data using scikit-learn.
+In the next step, we train a simple Random Forest classifier on the training data using scikit-learn.
 Furthermore, we make predictions on the test data using the trained model:
 
 .. code-block:: python
 
-   from sklearn.neural_network import MLPClassifier
-   import pandas as pd
+   from sklearn.ensemble import RandomForestClassifier
 
-   # initialize small neural network and train network on training data
-   classifier = MLPClassifier(hidden_layer_sizes=(100, 50, 30), verbose=True, random_state=0, alpha=1e-2)
+   # initialize a Random Forest classifier and fit to training data
+   classifier = RandomForestClassifier(verbose=True)
    classifier.fit(pd.get_dummies(df_train_cleared), target_train)
 
    # finally, make predictions on the validation data set

@@ -18,13 +18,6 @@ An exemplary YAML configuration for Thetis must have the following form:
    # meta data: issuer, address, etc.
    meta:
 
-     company:
-       company_name: "Example Company Ltd."
-       company_street: "Example Street 3"
-       company_postal: "12345"
-       company_city: "Example Village"
-       company_country: "Germany"
-
      model:
        name: "<model name>"
        revision: "<model revision>"
@@ -57,8 +50,9 @@ An exemplary YAML configuration for Thetis must have the following form:
      # or "cxcywh" (center x, center y, width, height).
      detection_bbox_format: "xyxy"
 
-     # list with IoU scores used for object detection evaluation. Common choices are "0.5" and/or "0.75".
-     detection_bbox_ious: [0.5, 0.75]
+     # list with IoU scores used for object detection evaluation
+     # Note: the IoU score "0.5" is always active for the evaluation. You can specify more IoU scores if you want
+     detection_bbox_ious: [0.75]
 
      # set to true if the bounding boxes are also inferred with a separate variance score (currently not supported)
      detection_bbox_probabilistic: false
@@ -89,10 +83,6 @@ An exemplary YAML configuration for Thetis must have the following form:
      # number of bins used for D-ECE calculation (object detection), required for detection evaluation
      dece_bins: 5
 
-     # number of quantiles used for Pinball/QCE computation, required for regression and probabilistic
-     # detection evaluation (currently not supported)
-     evaluation_quantiles: 11
-
    # settings for the evaluation of model fairness
    fairness:
      examine: true
@@ -116,21 +106,6 @@ In the following, we give a detailed overview about all possible general configu
    * - Key/Specifier
      - Dtype
      - Description
-   * - :code:`meta/company/company_name`
-     - string
-     - Name of the company running the evaluation.
-   * - :code:`meta/company/company_street`
-     - string
-     - Address street of the company running the evaluation.
-   * - :code:`meta/company/company_postal`
-     - string
-     - Address postal of the company running the evaluation.
-   * - :code:`meta/company/company_city`
-     - string
-     - Address city of the company running the evaluation.
-   * - :code:`meta/company/company_country`
-     - string
-     - Address country of the company running the evaluation.
    * - :code:`meta/model/name`
      - string
      - Name of the AI model used to generate predictions.
@@ -175,7 +150,8 @@ In the following, we give a detailed overview about all possible general configu
        "xywh" (xmin, ymin, width, height), or "cxcywh" (center x, center y, width, height).
    * - :code:`task_settings/detection_bbox_ious`
      - list of float
-     - List with IoU scores (in [0, 1] interval) used for object detection evaluation. Common choices are "0.5" and/or "0.75".
+     - List with IoU scores (in [0, 1] interval) used for object detection evaluation.
+       Note: the IoU score "0.5" is always active for the evaluation. You can specify more IoU scores if you want.
    * - :code:`task_settings/detection_bbox_probabilistic`
      - boolean
      - Currently not used.
@@ -232,10 +208,6 @@ Configuration of Safety Evaluation
      - Number of bins used for the computation of the Decetion Expected Calibration Error (D-ECE) (object detection only)
        and the respective reliability diagrams. The D-ECE is the counterpart of the ECE for position-dependent calibration
        evaluation of object detection tasks. The default value is 5.
-   * - :code:`uncertainty/evaluation_quantiles`
-     - int
-     - Number of quantiles used for Pinball/QCE computation, required for regression and probabilistic detection
-       evaluation (currently not supported).
 
 .. list-table:: Configuration settings for AI fairness evaluation.
    :widths: 35 10 55
