@@ -169,17 +169,13 @@ def thetis_mlflow(
             could be found.
         RuntimeError: if the license Key XML cannot be parsed.
         RuntimeError: if the license Key XML cannot be parsed.
+        RuntimeError: if the given language identifier is unknown or not supported.
         RuntimeError: if the indices of the predicted and ground-truth data set do not match to each other.
         RuntimeError: if the arrays for predicted labels and ground-truth data set have different dtypes.
         RuntimeError: if multi-class extraction failed and if more than 2 distinct classes are detected.
         RuntimeError: if multi-class extraction failed and if the specified positive label within the application
             config cannot be found in the data set (binary classification).
         RuntimeError: if bbox_format is not one of 'xyxy', 'xywh', or 'cxcywh'.
-        RuntimeError: if the fields "weight" or "invert" are missing within a YAML file for a certain rating aspect.
-        RuntimeError: if "evaluation_spline" has been defined within a YAML file for a certain rating
-            aspect but fieds "x" or "y" are missing.
-        RuntimeError: if the "weight" parameters do not sum up to 1 during metric calculation.
-        RuntimeError: if 'rating_scores' and 'rating_aspects' do not have the same length.
         AttributeError: if the key 'Key' cannot be found at the expected location.
         AttributeError: if the key 'Signature' cannot be found at the expected location.
         AttributeError: if the key 'ExpiryDate' cannot be found at the expected location.
@@ -214,8 +210,12 @@ def thetis_mlflow(
         TypeError: if config is neither str nor python dict.
         SyntaxError: if the syntax of the user configuration is malformed according to
             the required configuration schema.
-        thetiscore.license.errors.LicenseInvalidError: if the passed license key/signature pair is invalid.
-        thetiscore.license.errors.LicenseExpiredError: if the license has expired.
+        thetiscore.errors.LicenseInvalidError: if the passed license key/signature pair is invalid.
+        thetiscore.errors.LicenseExpiredError: if the license has expired.
+        thetiscore.errors.TaskNotLicensedError: if a task is requested by the user which has not been licensed.
+        thetiscore.errors.ThetisInternalLicenseError: if an unexpected application error during
+            license verification occurred.
+        thetiscore.errors.ThetisInternalError: if an unexpected application error occurred.
     """
 
     return thetiscore_mlflow(
