@@ -11,7 +11,7 @@ Thetis analyzes and evaluates the quality and consistency of the uncertainty tha
 AI prediction in most cases (e.g., score or confidence information in classification, "objectness" score in object
 detection, or variance estimation in probabilistic regression settings).
 The evaluation of uncertainty quality depends on the selected task. We give a brief overview about the mathematical
-background and the used metrics in the following.
+background and the used metrics in the following section.
 
 Classification
 --------------
@@ -103,7 +103,7 @@ The uncertainty evaluation differs from standard classification evaluation in tw
    IoU describes to which degree predicted and existing objects need to overlap to be considered as matching. Thus,
    all evaluation results are given w.r.t. a certain IoU score.
 
-Furthermore, recent work have shown that the calibration error might also be position-dependent
+Furthermore, recent work has shown that the calibration error might also be position-dependent
 :cite:p:`uncertainty-Kueppers2020`, :cite:p:`uncertainty-Kueppers2022a`, i.e., the calibration properties of objects located in the center
 of an image might differ from objects located at the image boundaries.
 Thus, given an object detection model that estimates an object with label :math:`\hat{Y} \in \mathcal{Y}`,

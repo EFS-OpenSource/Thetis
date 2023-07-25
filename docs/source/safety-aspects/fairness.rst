@@ -39,7 +39,7 @@ rate (expectation of model predictions w.r.t. the sensitive feature), so that is
 model works equally well for various groups. It is stricter than demographic parity because it not only demands
 that the model's predictions are not influenced by sensitive group membership but also requires that the groups
 have the same rates of false positive and true positive predictions :cite:p:`fairness-Agarwal2018`.
-More formally, it equalized odds can be described by
+More formally, equalized odds can be described by
 
 .. math::
 
