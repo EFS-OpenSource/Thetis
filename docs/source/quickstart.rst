@@ -234,8 +234,8 @@ Thetis expects a Python dictionary for the predictions and annotations, where th
 
       # retrieve predicted labels, bounding boxes, and filter predictions by label
       predicted_labels = categories[pred["labels"].numpy()]
-      predicted_boxes = pred["boxes"].numpy()
-      target_boxes = np.array(anns["boxes"])
+      predicted_boxes = pred["boxes"].numpy().reshape((-1, 4))
+      target_boxes = np.array(anns["boxes"]).reshape((-1, 4))
       filter = np.isin(predicted_labels, ["person", "bicycle", "car"])
       filename = anns["image_file"]
 
