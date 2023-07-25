@@ -216,6 +216,7 @@ for pred, anns in data:
   predicted_boxes = pred["boxes"].numpy()
   target_boxes = np.array(anns["boxes"])
   filter = np.isin(predicted_labels, ["person", "bicycle", "car"])
+  filename = anns["image_file"]
 
   # add predicted information as pd.DataFrame
   predictions[filename] = pd.DataFrame.from_dict({
