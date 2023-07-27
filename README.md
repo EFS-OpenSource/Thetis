@@ -7,7 +7,7 @@ _Even if your AI is as strong as Achilles, Thetis will certainly know about its 
 Thetis is a service to examine safety-relevant aspects of AI algorithms (e.g., machine learning or deep learning models)
 for uncertainty consistency (calibration), fairness, data quality, and robustness.
 
-Please visit the [API Documentation Page](https://efs-opensource.github.io/thetis/build/html/index.html) for the 
+Please visit the [API Documentation Page](https://efs-opensource.github.io/Thetis/index.html) for the 
 complete documentation and detailed backgrounds to the several safety aspects.
 
 ## Installation
@@ -29,7 +29,7 @@ Place the license file either in the working directory of your application or at
 * Windows: `<User>\\AppData\\Local\\Thetis\\license.dat`
 * Unix: `~/.local/thetis/license.dat`
 
-For further information about subscription models and license settings, see [Subscription](https://efs-opensource.github.io/thetis/build/html/subscription.html). <br />
+For further information about subscription models and license settings, see [Subscription](https://efs-opensource.github.io/Thetis/subscription.html). <br />
 Your feedback is highly appreciated!
 
 ## Quickstart
@@ -116,7 +116,7 @@ The library simply expects two Pandas data frames:
   probability (model uncertainty or confidence). Note that the indices of the data frames for ground-truth information
   and predictions must match.
 
-For details of the library configuration, see section [Configuration](https://efs-opensource.github.io/thetis/build/html/configuration.html). For the current example, you can download
+For details of the library configuration, see section [Configuration](https://efs-opensource.github.io/Thetis/configuration.html). For the current example, you can download
 the demo configuration file at [efs-techhub.com](https://efs-techhub.com/efs-portfolio/loesungen/thetis).
 
 The final rating and recommendations for mitigation strategies can be found in the `result` JSON-like dictionary
@@ -264,7 +264,7 @@ result = thetis(
 )
 ```
 
-For details of the library configuration, see section [Configuration](https://efs-opensource.github.io/thetis/build/html/configuration.html). For the current example, the configuration
+For details of the library configuration, see section [Configuration](https://efs-opensource.github.io/Thetis/configuration.html). For the current example, the configuration
 file is shipped with the demo data set. Alternatively, you can download
 the demo configuration file at [efs-techhub.com](https://efs-techhub.com/efs-portfolio/loesungen/thetis).
 
