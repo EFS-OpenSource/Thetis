@@ -15,6 +15,8 @@ maintainers = [
     { name = "e:fs TechHub GmbH" }
 ]
 
+license = {text = "Proprietary"}
+
 keywords = [
     "ai",
     "safety",
@@ -38,7 +40,7 @@ keywords = [
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
-    "Development Status :: 2 - Pre-Alpha",
+    "Development Status :: 3 - Alpha",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 
@@ -52,9 +54,6 @@ content-type = "text/markdown"
 Homepage = "https://efs-techhub.com/efs-portfolio/loesungen/thetis"
 GitHub = "https://github.com/EFS-OpenSource/Thetis"
 Documentation = "https://efs-opensource.github.io/Thetis"
-
-[project.license]
-file = "LICENSES.md"
 
 [tool.setuptools.dynamic]
 version = { attr = "thetis.__version__" }
