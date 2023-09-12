@@ -1,0 +1,49 @@
+# meta data of model predictions and data set
+meta:
+
+  model:
+    name: "RandomForest Classifier (scikit-learn)"
+    revision: "r1"
+
+  dataset:
+    name: "Adult Dataset"
+    revision: "r1"
+
+
+# examination task
+task: "classification"
+
+# language of the final report. Can be one of: "en", "de"
+language: "en"
+
+# distinct classes for classification example
+distinct_classes: ["<=50K", ">50K"]
+
+# binary label - required for classification example
+binary_positive_label: ">50K"
+
+# settings for the data evaluation routine
+data_evaluation:
+  examine: true
+
+# settings for the AI baseline performance evaluation (which should be always performed!)
+performance:
+  examine: true
+
+# settings for the evaluation of confidence calibration
+uncertainty:
+  examine: true
+
+  # required for classification and detection evaluation
+  ece_bins : 20
+
+  # required for classification and detection evaluation
+  ece_sample_threshold: 10
+
+# settings for the evaluation of model fairness
+fairness:
+  examine: true
+
+  # sensitive attribute required for classification example
+  race: "all"
+  sex: "all"

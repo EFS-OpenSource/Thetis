@@ -164,11 +164,15 @@ def thetis_mlflow(
         Dictionary with the evaluation results, rating scores, and recommendations for the examined AI model.
 
     Raises:
+        RuntimeError: if license_file_path is given but file path is malformed
+            (e.g., due to insufficient escaping of backslashes).
         RuntimeError: if neither 'license_file_path', 'license_xml_str', 'license_key_and_signature', THETIS_LICENSE,
             "license.dat" in working directory nor "license.dat" in user local home directory (OS specific)
             could be found.
         RuntimeError: if the license Key XML cannot be parsed.
         RuntimeError: if the license Key XML cannot be parsed.
+        RuntimeError: if config is given as file path but file path is malformed
+            (e.g., due to insufficient escaping of backslashes).
         RuntimeError: if the given language identifier is unknown or not supported.
         RuntimeError: if the indices of the predicted and ground-truth data set do not match to each other.
         RuntimeError: if the arrays for predicted labels and ground-truth data set have different dtypes.
@@ -176,9 +180,12 @@ def thetis_mlflow(
         RuntimeError: if multi-class extraction failed and if the specified positive label within the application
             config cannot be found in the data set (binary classification).
         RuntimeError: if bbox_format is not one of 'xyxy', 'xywh', or 'cxcywh'.
+        FileNotFoundError: if file with given license_file_path cannot be found.
+        FileNotFoundError: if config is given as file path but no appropriate file can be found.
         AttributeError: if the key 'Key' cannot be found at the expected location.
         AttributeError: if the key 'Signature' cannot be found at the expected location.
         AttributeError: if the key 'ExpiryDate' cannot be found at the expected location.
+        AttributeError: if detection mode but key "task_settings/detection_bbox_format" is missing in user config.
         AttributeError: if "fairness" evaluation is active but no sensitive feature has been specified.
         AttributeError: if the key 'Features' cannot be found at the expected location.
         AttributeError: if the requested column "labels" does not exist within the predicted data set.
@@ -205,9 +212,15 @@ def thetis_mlflow(
         ValueError: if bbox_format is 'xyxy' and ymin > ymax.
         ValueError: if bbox_format is 'xywh' or 'cxcywh' and width is negative.
         ValueError: if bbox_format is 'xywh' or 'cxcywh' and height is negative.
-        ValueError: if no classes have been found in the provided data.
         NotImplementedError: if task is not one of "classification" or "detection".
         TypeError: if config is neither str nor python dict.
+        TypeError: if 'predictions' is not type pd.DataFrame (classification).
+        TypeError: if 'annotations' is not type pd.DataFrame (classification).
+        TypeError: if 'predictions' is not type dict (detection).
+        TypeError: if any value in 'predictions' dictionary is not type pd.DataFrame (detection).
+        TypeError: if 'annotations' is not type dict (detection).
+        TypeError: if any value in 'annotations' dictionary is not type pd.DataFrame (detection).
+        SyntaxError: if the provided configuration file is not in proper YAML format.
         SyntaxError: if the syntax of the user configuration is malformed according to
             the required configuration schema.
         thetiscore.errors.LicenseInvalidError: if the passed license key/signature pair is invalid.

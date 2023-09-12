@@ -15,13 +15,12 @@ An exemplary YAML configuration for Thetis must have the following form:
 
 .. code-block:: yaml
 
-   # meta data: issuer, address, etc.
+   # meta data of model predictions and data set
    meta:
 
      model:
        name: "<model name>"
        revision: "<model revision>"
-       hash: "<some hash retrieved by AI model>"
 
      dataset:
        name: "<data set name>"
@@ -112,9 +111,6 @@ In the following, we give a detailed overview about all possible general configu
    * - :code:`meta/model/revision`
      - string
      - Revision of the AI model used to generate predictions.
-   * - :code:`meta/model/hash`
-     - string
-     - Hash of the AI model used to generate predictions.
    * - :code:`meta/dataset/name`
      - string
      - Name of the data set holding the ground-truth information.

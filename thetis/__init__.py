@@ -17,10 +17,16 @@ This is the API reference of the main entrance points for the Thetis toolbox.
    thetis
    thetis_mlflow
 
+   read_json_with_pandas
+   write_json_with_pandas
+
 """
+
+from .io import read_json_with_pandas
+from .io import write_json_with_pandas
 
 from .service import thetis
 from .mlflow import thetis_mlflow
 
 name = "thetis"
-__version__ = "0.1.2"
+__version__ = "0.1.3"

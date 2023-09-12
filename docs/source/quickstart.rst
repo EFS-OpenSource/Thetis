@@ -63,11 +63,14 @@ The data set is loaded using tools from scikit-learn library:
 
    import pandas as pd
    from sklearn.datasets import fetch_openml
-   from sklearn.model_selection import train_test_split
+
+   testset_size = 10000
 
    # use "fetch_openml" by scikit-learn to load "Adult" dataset from OpenML
-   dataset, target = fetch_openml(data_id=1590, return_X_y=True)
-   df_train, df_test, target_train, target_test = train_test_split(dataset, target, test_size=10000, random_state=0)
+   dataset, target = fetch_openml(data_id=1590, return_X_y=True, parser="auto")
+
+   df_train, df_test = dataset.iloc[:-testset_size], dataset.iloc[-testset_size:]
+   target_train, target_test = target.iloc[:-testset_size], target.iloc[-testset_size:]
 
    # drop columns with sensitive attributes from classifier input and convert categorical attributes to one-hot
    df_train_cleared = df_train.drop(columns=["education", "race", "sex", "native-country", "relationship", "marital-status"])
@@ -103,6 +106,10 @@ Furthermore, we make predictions on the test data using the trained model:
 Running AI Safety Evaluation with Thetis
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+For details of the library configuration, see section :ref:`Configuration`.
+For the current example, you can download the `demo configuration file <https://raw.githubusercontent.com/EFS-OpenSource/Thetis/main/examples/demo_config_classification.yaml>`__
+within the current repository or `click here <https://thetishostedfiles.blob.core.windows.net/demofiles/thetis_demo_classification.zip>`__.
+
 .. code-block:: python
 
    from thetis import thetis
@@ -112,10 +119,11 @@ Running AI Safety Evaluation with Thetis
    predictions = pd.DataFrame({"labels": labels, "confidence": confidence[:, 1]}, index=annotations.index)
 
    result = thetis(
-       config="config.yaml",
+       config="examples/demo_config_classification.yaml",
        annotations=annotations,
        predictions=predictions,
        output_dir="./output",
+       license_file_path="examples/demo_license_classification.dat",
    )
 
 The library simply expects two Pandas data frames:
@@ -127,9 +135,6 @@ The library simply expects two Pandas data frames:
   :code:`confidence` are required, holding information about the predicted label and the respective prediction
   probability (model uncertainty or confidence). Note that the indices of the data frames for ground-truth information
   and predictions must match.
-
-For details of the library configuration, see section :ref:`Configuration`. For the current example, you can download
-the demo configuration file at `efs-techhub.com <https://efs-techhub.com/efs-portfolio/loesungen/thetis>`__.
 
 The final rating and recommendations for mitigation strategies can be found in the :code:`result` JSON-like dictionary
 for the different evaluation aspects:
@@ -176,7 +181,7 @@ First, we need to load and initialize the `Faster R-CNN by Torchvision <https://
 
 Note that the model is pre-trained on the MS COCO data set with several categories. In our example, we only
 work with the categories "person", "bicycle", and "car". In the next step, download and extract
-the `Demo Detection Data Set <https://efs-techhub.com/efs-portfolio/loesungen/thetis>`__ which is artificially generated using
+the `Demo Detection Data Set <https://thetishostedfiles.blob.core.windows.net/demofiles/thetis_demo_detection.zip>`__ which is artificially generated using
 the `Carla simulation engine <https://carla.org/>`__. After download and extraction, we can load the JSON annotation
 files and run inference with the Torchvision model:
 
@@ -188,24 +193,31 @@ files and run inference with the Torchvision model:
    import json
    import torch
 
+   # set the inference device - if you have a CUDA device, you can set it to "cuda:<idx>"
+   device = "cpu"
+   # device = "cuda:0"
+
+   model.to(device)
+
    # get a list of all JSON files
    annotation_files = glob(os.path.join("demo_detection", "annotations", "*.json"))
    data = []
 
    # iterate over all JSON files and retrieve annotations
    for filename in tqdm(annotation_files, desc="Running inference on images ..."):
-      with open(filename, "r") as open_file:
-         anns = json.load(open_file)
+       with open(filename, "r") as open_file:
+           anns = json.load(open_file)
 
-      # load respective image, run preprocessing (transformation) and finally run inference
-      img = read_image(os.path.join("demo_detection", "img", anns["image_file"]), ImageReadMode.RGB)
-      img = [preprocess(img)]
+       # load respective image, run preprocessing (transformation) and finally run inference
+       img = read_image(os.path.join("demo_detection", "img", anns["image_file"]), ImageReadMode.RGB)
+       img = [preprocess(img).to(device=device)]
 
-      with torch.no_grad():
-         pred = model(img)[0]
+       with torch.no_grad():
+           pred = model(img)[0]
+           pred = {k: v.cpu() for k, v in pred.items()}
 
-      # store predicted and target data for current frame
-      data.append((pred, anns))
+       # store predicted and target data for current frame
+       data.append((pred, anns))
 
 .. raw:: html
 
@@ -232,36 +244,36 @@ Thetis expects a Python dictionary for the predictions and annotations, where th
    # iterate over all frames with predicted and target information
    for pred, anns in data:
 
-      # retrieve predicted labels, bounding boxes, and filter predictions by label
-      predicted_labels = categories[pred["labels"].numpy()]
-      predicted_boxes = pred["boxes"].numpy().reshape((-1, 4))
-      target_boxes = np.array(anns["boxes"]).reshape((-1, 4))
-      filter = np.isin(predicted_labels, ["person", "bicycle", "car"])
-      filename = anns["image_file"]
+       # retrieve predicted labels, bounding boxes, and filter predictions by label
+       predicted_labels = categories[pred["labels"].numpy()]
+       predicted_boxes = pred["boxes"].numpy().reshape((-1, 4))
+       target_boxes = np.array(anns["boxes"]).reshape((-1, 4))
+       filter = np.isin(predicted_labels, ["person", "bicycle", "car"])
+       filename = anns["image_file"]
 
-      # add predicted information as pd.DataFrame
-      predictions[filename] = pd.DataFrame.from_dict({
-         "labels": predicted_labels[filter],
-         "confidence": pred["scores"].numpy()[filter],
-         "xmin": predicted_boxes[:, 0][filter],
-         "ymin": predicted_boxes[:, 1][filter],
-         "xmax": predicted_boxes[:, 2][filter],
-         "ymax": predicted_boxes[:, 3][filter],
-      })
+       # add predicted information as pd.DataFrame
+       predictions[filename] = pd.DataFrame.from_dict({
+           "labels": predicted_labels[filter],
+           "confidence": pred["scores"].numpy()[filter],
+           "xmin": predicted_boxes[:, 0][filter],
+           "ymin": predicted_boxes[:, 1][filter],
+           "xmax": predicted_boxes[:, 2][filter],
+           "ymax": predicted_boxes[:, 3][filter],
+       })
 
-      # add ground-truth information also as pd.DataFrame with additional sensitive attributes
-      annotations[filename] = pd.DataFrame.from_dict({
-         "target": anns["classes"],
-         "gender": anns["gender"],
-         "age": anns["age"],
-         "xmin": target_boxes[:, 0],
-         "ymin": target_boxes[:, 1],
-         "xmax": target_boxes[:, 2],
-         "ymax": target_boxes[:, 3],
-      })
+       # add ground-truth information also as pd.DataFrame with additional sensitive attributes
+       annotations[filename] = pd.DataFrame.from_dict({
+           "target": anns["classes"],
+           "gender": anns["gender"],
+           "age": anns["age"],
+           "xmin": target_boxes[:, 0],
+           "ymin": target_boxes[:, 1],
+           "xmax": target_boxes[:, 2],
+           "ymax": target_boxes[:, 3],
+        })
 
-      # some additional meta information such as image width and height are also required
-      annotations["__meta__"].loc[filename] = [anns["image_width"], anns["image_height"]]
+       # some additional meta information such as image width and height are also required
+       annotations["__meta__"].loc[filename] = [anns["image_width"], anns["image_height"]]
 
 Important: the dictionary for the ground-truth annotations requires a key "__meta__" which holds width and height
 information for each image within the data set (provided as Pandas DataFrame). Note that the index of the entries within
@@ -279,15 +291,16 @@ with the configuration to the Thetis evaluation routine:
 
    # finally, we can call the Thetis evaluation service similarly to the classification case
    result = thetis(
-       config="demo_detection/config.yaml",
+       config="examples/demo_config_detection.yaml",
        annotations=annotations,
        predictions=predictions,
        output_dir="./output",
+       license_file_path="examples/demo_license_detection.dat",
    )
 
-For details of the library configuration, see section :ref:`Configuration`. For the current example, the configuration
-file is shipped with the demo data set. Alternatively, you can download
-the demo configuration file at `efs-techhub.com <https://efs-techhub.com/efs-portfolio/loesungen/thetis>`__.
+For details of the library configuration, see section :ref:`Configuration`.
+For the current example, you can download the `demo configuration file <https://raw.githubusercontent.com/EFS-OpenSource/Thetis/main/examples/demo_config_detection.yaml>`__
+within the current repository or `click here <https://thetishostedfiles.blob.core.windows.net/demofiles/thetis_demo_detection.zip>`__.
 
 The final rating and recommendations for mitigation strategies can be found in the :code:`result` JSON-like dictionary
 for the different evaluation aspects:

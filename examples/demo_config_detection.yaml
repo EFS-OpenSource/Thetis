@@ -1,0 +1,58 @@
+# meta data of model predictions and data set
+meta:
+
+  model:
+    name: "Torchvision FasterRCNN ResNet50 FPN"
+    revision: "V2"
+
+  dataset:
+    name: "Demo Carla Detection Data Set"
+    revision: "r1"
+
+
+# examination task
+task: "detection"
+
+# language of the final report. Can be one of: "en", "de"
+language: "en"
+
+distinct_classes: ["person", "bicycle", "car"]
+binary_positive_label: "nan"
+
+task_settings:
+
+  detection_bbox_format: "xyxy"
+  detection_bbox_ious: [0.5, 0.75]
+  detection_bbox_probabilistic: false
+
+  # in detection mode, it is possible to set a confidence threshold
+  # to discard blurry predictions with low confidence
+  detection_confidence_thr: 0.2
+
+# settings for the data evaluation routine
+data_evaluation:
+  examine: true
+
+# settings for the AI baseline performance evaluation (which should be always performed!)
+performance:
+  examine: true
+
+# settings for the evaluation of confidence calibration
+uncertainty:
+  examine: true
+
+  # required for classification and detection evaluation
+  ece_bins : 20
+
+  # required for classification and detection evaluation
+  ece_sample_threshold: 10
+
+  # required for detection evaluation
+  dece_bins: 5
+
+# settings for the evaluation of model fairness
+fairness:
+  examine: true
+
+  gender: ["person"]
+  age: ["person"]
