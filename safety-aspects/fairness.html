@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Fairness &mdash; Thetis User Guide</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="../_static/css/text.css" type="text/css" />
+<link rel="stylesheet" href="../_static/css/toggle.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '0.1.3',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sphinx_highlight.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/javascript" src="../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Thetis User Guide" href="../index.html" />
+    <link rel="up" title="Safety Aspects" href="../aspects.html" />
+    <link rel="next" title="Robustness (Coming soon)" href="robustness.html" />
+    <link rel="prev" title="Data Quality" href="data_evaluation.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">Thetis User Guide</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">Fairness</a><ul>
+<li><a class="reference internal" href="#classification">Classification</a></li>
+<li><a class="reference internal" href="#regression">Regression</a></li>
+<li><a class="reference internal" href="#object-detection">Object Detection</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="data_evaluation.html" title="Data Quality" accesskey="P">previous </a></li>
+              <li><a href="robustness.html" title="Robustness (Coming soon)" accesskey="N">next </a></li>
+              <li><a href="../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="../aspects.html" accesskey="U">Safety Aspects</a></li>
+            
+            <li class="visible-xs"><a href="../_sources/safety-aspects/fairness.rst.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html#issues-bugtracking">Issues &amp; Bugtracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Preparing Input Data</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../aspects.html">Safety Aspects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="uncertainty.html">Uncertainty Consistency (Calibration)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">AI Performance Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_evaluation.html">Data Quality</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Fairness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="robustness.html">Robustness (Coming soon)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explainability.html">Explainability (Coming soon)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../subscription.html">Subscription and Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compliance.html">ISO 26262 Compliance</a></li>
+</ul>
+
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <section id="fairness">
+<span id="id1"></span><h1>Fairness<a class="headerlink" href="#fairness" title="Permalink to this heading">¶</a></h1>
+<p>The evaluation of fairness of an AI algorithm is highly important to assess for a possible discrimination of
+individual sensitive groups. Thetis evaluates for <em>group fairness</em> which evaluates the risk for individual groups of
+experiencing discrimination. The fairness rating of an AI model is based on several fairness metrics which are
+described in the following.</p>
+<section id="classification">
+<h2>Classification<a class="headerlink" href="#classification" title="Permalink to this heading">¶</a></h2>
+<p><strong>Demographic Parity Difference:</strong> the Demographic Parity states that the decisions of an AI algorithm are independent
+of a certain feature which describes a sensitive group (e.g., the predictions are independent of feature <em>gender</em>)
+<span id="id2">[<a class="reference internal" href="#id7" title="Alekh Agarwal, Alina Beygelzimer, Miroslav Dudík, John Langford, and Hanna Wallach. A reductions approach to fair classification. In International Conference on Machine Learning, 60–69. PMLR, 2018.">ABDudik+18</a>]</span>.
+Given an input <span class="math notranslate nohighlight">\(X \in \mathcal{X}\)</span>, a classification model <span class="math notranslate nohighlight">\(h(X)\)</span> makes predictions
+<span class="math notranslate nohighlight">\(\hat{Y} \in \mathcal{Y}\)</span> targeting the ground-truth label <span class="math notranslate nohighlight">\(\bar{Y} \in \mathcal{Y}\)</span>, so that
+<span class="math notranslate nohighlight">\(h: \mathcal{X} \rightarrow \mathcal{Y}\)</span>. Furthermore, let <span class="math notranslate nohighlight">\(A \in \mathcal{A}\)</span> denote a sensitive feature
+(e.g., attribute <em>gender</em>) for each <span class="math notranslate nohighlight">\(X\)</span>. Demographic parity is reached if the prediction <span class="math notranslate nohighlight">\(h(X)\)</span> is
+statistically independent of <span class="math notranslate nohighlight">\(A\)</span>, so that</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{E}_{X}\Big[ h(X) | A = a \Big] = \mathrm{E}_{X}\Big[ h(X) \Big], \quad \forall a \in \mathcal{A} ,\]</div>
+<p>is fullfilled <span id="id3">[<a class="reference internal" href="#id7" title="Alekh Agarwal, Alina Beygelzimer, Miroslav Dudík, John Langford, and Hanna Wallach. A reductions approach to fair classification. In International Conference on Machine Learning, 60–69. PMLR, 2018.">ABDudik+18</a>]</span>.</p>
+<p>The <em>Demographic Parity Difference</em> is now defined as the difference between the smallest and the largest selection
+rate (expectation of model predictions w.r.t. the sensitive feature), so that is can be obtained by</p>
+<div class="math notranslate nohighlight">
+\[\max_{a \in \mathcal{A}} \mathrm{E}_{X}\Big[ h(X) | A = a \Big] -
+\min_{a \in \mathcal{A}} \mathrm{E}_{X}\Big[ h(X) | A = a \Big] .\]</div>
+<p><strong>Equalized Odds Difference:</strong> the aim of the equalized odds fairness metric is to make sure that a machine learning
+model works equally well for various groups. It is stricter than demographic parity because it not only demands
+that the model’s predictions are not influenced by sensitive group membership but also requires that the groups
+have the same rates of false positive and true positive predictions <span id="id4">[<a class="reference internal" href="#id7" title="Alekh Agarwal, Alina Beygelzimer, Miroslav Dudík, John Langford, and Hanna Wallach. A reductions approach to fair classification. In International Conference on Machine Learning, 60–69. PMLR, 2018.">ABDudik+18</a>]</span>.
+More formally, equalized odds can be described by</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{E}_{X}\Big[ h(X) | A = a, \bar{Y} = \bar{y} \Big] = \mathrm{E}_{X}\Big[ h(X) | \bar{Y} = \bar{y} \Big],
+\quad \forall a \in \mathcal{A}, \bar{y} \in \mathcal{Y} .\]</div>
+<p>This difference is significant because a model may achieve demographic parity but it could
+still produce more false positive predictions for one group compared to others <span id="id5">[<a class="reference internal" href="#id7" title="Alekh Agarwal, Alina Beygelzimer, Miroslav Dudík, John Langford, and Hanna Wallach. A reductions approach to fair classification. In International Conference on Machine Learning, 60–69. PMLR, 2018.">ABDudik+18</a>]</span>.</p>
+<p>The <em>Equalized Odds Difference</em> reflects the greater of either <em>true positive rate difference</em> or
+<em>false positive rate difference</em> metrics. Both metrics are computed in a similar way as the <em>Demographic Parity
+Difference</em> and denote the difference between largest and smallest score of true/false positive rate scores across
+the sensitive groups.</p>
+</section>
+<section id="regression">
+<h2>Regression<a class="headerlink" href="#regression" title="Permalink to this heading">¶</a></h2>
+<p>Coming soon.</p>
+</section>
+<section id="object-detection">
+<h2>Object Detection<a class="headerlink" href="#object-detection" title="Permalink to this heading">¶</a></h2>
+<p>The metrics for evaluating the fairness of object detection algorithms are highly related to the ones used
+for classification fairness evaluation. However, the computation of the <em>Equalized Odds Difference</em> is not directly
+applicable since it is also based on the <em>false positive rate</em> which, in turn, needs access to the <em>true negatives</em>,
+i.e., correctly identified background.</p>
+<p>Therefore, we use the <strong>Demographic Parity Difference</strong> metric to evaluate the fairness of object detections on
+a dedicated evaluation data set.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
+<div class="docutils container" id="id6">
+<div class="citation" id="id7" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>ABDudik+18<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id4">3</a>,<a role="doc-backlink" href="#id5">4</a>)</span>
+<p>Alekh Agarwal, Alina Beygelzimer, Miroslav Dudík, John Langford, and Hanna Wallach. A reductions approach to fair classification. In <em>International Conference on Machine Learning</em>, 60–69. PMLR, 2018.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../index.html">Thetis User Guide</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="data_evaluation.html" title="Data Quality" >previous</a></li>
+        <li><a href="robustness.html" title="Robustness (Coming soon)" >next</a></li>
+        <li><a href="../genindex.html" title="General Index" >index</a></li>
+        <li><a href="../aspects.html" >Safety Aspects</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>
