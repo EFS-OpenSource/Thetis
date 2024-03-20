@@ -29,4 +29,4 @@ from .service import thetis
 from .mlflow import thetis_mlflow
 
 name = "thetis"
-__version__ = "0.1.4"
+__version__ = "0.2.0"

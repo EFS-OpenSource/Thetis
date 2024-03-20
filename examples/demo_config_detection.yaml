@@ -16,14 +16,13 @@ task: "detection"
 # language of the final report. Can be one of: "en", "de"
 language: "en"
 
-distinct_classes: ["person", "bicycle", "car"]
-binary_positive_label: "nan"
-
 task_settings:
 
   detection_bbox_format: "xyxy"
   detection_bbox_ious: [0.5, 0.75]
+  detection_bbox_matching: "exclusive"
   detection_bbox_probabilistic: false
+  distinct_classes: ["person", "car"]
 
   # in detection mode, it is possible to set a confidence threshold
   # to discard blurry predictions with low confidence
@@ -54,5 +53,6 @@ uncertainty:
 fairness:
   examine: true
 
-  gender: ["person"]
-  age: ["person"]
+  sensitive_attributes:
+    gender: ["person"]
+    age: ["person"]

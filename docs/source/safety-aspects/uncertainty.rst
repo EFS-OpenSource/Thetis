@@ -15,8 +15,9 @@ background and the used metrics in the following section.
 
 Classification
 --------------
+
 Given an input :math:`X \in \mathcal{X}`, an AI model predicts a label :math:`\hat{Y} \in \mathcal{Y}` targeting
-the ground-truth label :math:`\bar{Y} \in \mathcal{Y}`.
+the ground truth label :math:`\bar{Y} \in \mathcal{Y}`.
 For binary classification, the set of labels is :math:`\mathcal{Y} \in \{0, 1\}` and the AI model commonly outputs
 a (probability) score :math:`\hat{P} \in [0, 1]`, denoting the confidence in predicting the positive class.
 The uncertainty estimation of a binary classification model is *well calibrated*, if
@@ -83,7 +84,75 @@ higher calibration error compared to the average level of miscalibration.
 Regression (Probabilistic)
 --------------------------
 
-Coming soon.
+In the context of regression (estimation of a continuous target score), several machine learning/deep learning
+algorithms are able to output an estimation uncertainty along with the predicted score.
+Similar to the classification case, this uncertainty shall reflect the (expected) prediction error. If the AI
+model consistently over- or underestimates the prediction error, it is considered to be *miscalibrated*.
+
+Mathematically, a (probabilistic) AI model takes an (arbitrary) input and predicts a
+mean :math:`\mu_\hat{R} \in \mathbb{R}` and variance :math:`\sigma^2_\hat{R} \in \mathbb{R}_{>0}`,
+so that the random variable for the model predictions is given by
+:math:`\hat{R} \sim \mathcal{N}(\mu_\hat{R}, \sigma^2_\hat{R})`, targeting the ground truth
+score :math:`\bar{R} \in \mathbb{R}`.
+
+There exist several definitions for the term uncertainty calibration in the context of
+probabilistic regression :cite:p:`uncertainty-Kueppers2022b`. The commonly used definition is
+*quantile calibration* where it is required that the estimated prediction intervals for a certain quantile level
+:math:`\tau \in (0, 1)` cover :math:`\tau%` of the ground truth scores of a validation data set.
+
+More formally, let :math:`\hat{F}_{\hat{R}}: \mathbb{R} \rightarrow (0, 1)` be the predicted
+cumulative distribution function (CDF) of :math:`\hat{R}` and the (inverse) percent point
+function (PPF), i.e., the quantile function be given by
+:math:`\hat{F}_{\hat{R}}^{-1}: (0, 1) \rightarrow \mathbb{R}` accordingly.
+A prediction model is quantile calibrated, if
+
+.. math::
+
+   \mathbb{P} \Big( \bar{R} \leq \hat{F}_{\hat{R}}^{-1}(\tau) \Big) = \tau, \quad \forall \tau \in (0, 1) ,
+
+is fulfilled.
+
+Several metrics exist to evaluate for *quantile calibration*:
+
+**Quantile loss aka Pinball loss**:
+
+.. math::
+
+   \mathcal{L}_{\text{Pin}}(\tau) =
+   \begin{cases}
+       (\bar{r} - \hat{F}_{\hat{R}}^{-1}(\tau))\tau \quad &\text{if } \bar{r} \geq \hat{F}_{\hat{R}}^{-1}(\tau) \\
+       (\hat{F}_{\hat{R}}^{-1}(\tau) - \bar{r})(1 - \tau) \quad &\text{if } \bar{r} < \hat{F}_{\hat{R}}^{-1}(\tau)
+   \end{cases}
+
+**Quantile Calibration Error**:
+The quantile calibration error measures the absolute difference between expected quantile level and actual quantile
+coverage of the ground truth scores by the predicted distributions for a certain quantile level
+:cite:p:`uncertainty-Kueppers2022b`. For a data set with :math:`N` samples, the QCE is given by
+
+.. math::
+
+   QCE(\tau) := \Bigg| \frac{1}{N} \sum^N_{n=1} \mathbb{1}(\epsilon_{\bar{R}_n} \leq \chi^2(\tau)) - \tau \Bigg| ,
+
+where :math:`\chi^2(\tau)` denotes the PPF of the Chi-Square distribution with 1 degree of freedom.
+Furthermore, :math:`\epsilon_{\bar{R}_n}` denotes the Normalized Estimation Error Squared (NEES) aka 
+squared Mahalanobis distance which is given for the one-dimensional case by
+
+.. math::
+
+   \epsilon_{\bar{R}_n} :=  \frac{(\bar{R} - \mu_{\hat{R}})^2}{\sigma^2_{\hat{R}}} .
+
+**Proper scoring rules: Negative Log Likelihood (NLL)**:
+The NLL for continuous random variables is given by
+
+.. math::
+
+   NLL := - \frac{1}{N} \sum^N_{n=1} \log \Big(f_{\hat{R}}(\bar{r}; \mu_{\hat{R}}, \sigma^2_{\hat{R}})\Big) ,
+
+with :math:`f_{\hat{R}}(\bar{r}; \mu_{\hat{R}}, \sigma^2_{\hat{R}})` as the probability density function (PDF)
+of the predicted distribution at ground truth score :math:`\bar{r}`.
+The NLL can be used as a metric to evaluate the uncertainty calibration properties of an estimator since
+it captures the goodness of fit of probability distributions. It jointly measures the baseline
+prediction performance as well as the quality of the uncertainty estimates.
 
 Object Detection
 ----------------
@@ -98,7 +167,7 @@ The uncertainty evaluation differs from standard classification evaluation in tw
 
 1. Since most applications do not have access to the *true negatives* (correctly identified background as such), it is
    not possible to calculate the accuracy. Thus, the calibration target is the precision :cite:p:`uncertainty-Kueppers2020`.
-2. For the computation of the precision, it is necessary to match predicted objects with real existing (ground-truth)
+2. For the computation of the precision, it is necessary to match predicted objects with real existing (ground truth)
    objects. However, this matching strategy depends on the selected Intersection over Union (IoU) score. The specified
    IoU describes to which degree predicted and existing objects need to overlap to be considered as matching. Thus,
    all evaluation results are given w.r.t. a certain IoU score.
@@ -115,7 +184,7 @@ confidence :math:`\hat{P} \in [0, 1]`, and position information :math:`\hat{\mat
    \mathbb{P}(\hat{M} = 1 | \hat{P} = \hat{p}, \hat{Y} = \hat{y}, \hat{\mathbf{R}} = \hat{\mathbf{r}}) = \hat{p}, \\
    \forall \hat{p} \in [0, 1], \hat{y} \in \mathcal{Y}, \hat{\mathbf{r}} \in \mathcal{R} ,
 
-where :math:`\hat{M}` evaluates to :math:`1` if the predicted object matches a real existing (ground-truth) object.
+where :math:`\hat{M}` evaluates to :math:`1` if the predicted object matches a real existing (ground truth) object.
 
 **Detection Expected Calibration Error (D-ECE):** from this definition, we can derive the D-ECE similar as to the ECE.
 The target is to minimize the position-dependent expectation of the difference between predicted

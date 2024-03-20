@@ -1,0 +1,33 @@
+<LicenseKey>
+  <Info>
+    <Id>d653370c-1792-459f-aa5c-d56cce485f6a</Id>
+    <Features>Thetis:regression Thetis:data_evaluation Thetis:performance Thetis:fairness Thetis:uncertainty Thetis:annotations:cd1a4378f81b4575e6e89b09bef17661</Features>
+    <Licensee>
+      <CompanyName>Jon Doe Company</CompanyName>
+      <ContactName>Jon Doe</ContactName>
+      <AddressLines>
+        <string>Example Street 42</string>
+      </AddressLines>
+      <PostalCode>12345</PostalCode>
+      <City>Example City</City>
+      <Country>Germany</Country>
+    </Licensee>
+    <Licenser>
+      <CompanyName>e:fs TechHub GmbH</CompanyName>
+      <AddressLines>
+        <string>Dr.-Ludwig-Kraus-Str. 6</string>
+      </AddressLines>
+      <PostalCode>85080</PostalCode>
+      <City>Gaimersheim</City>
+      <Country>Germany</Country>
+    </Licenser>
+    <ExpiryDate>2024-12-31T00:00:00</ExpiryDate>
+    <Notes>
+      <string>Evaluation license. The terms of the evaluation version license agreement apply.</string>
+    </Notes>
+    <LicenseBinding />
+    <Seats>1</Seats>
+  </Info>
+  <Key>PExpY2Vuc2VJbmZvPg0KICA8SWQ+ZDY1MzM3MGMtMTc5Mi00NTlmLWFhNWMtZDU2Y2NlNDg1ZjZhPC9JZD4NCiAgPEZlYXR1cmVzPlRoZXRpczpyZWdyZXNzaW9uIFRoZXRpczpkYXRhX2V2YWx1YXRpb24gVGhldGlzOnBlcmZvcm1hbmNlIFRoZXRpczpmYWlybmVzcyBUaGV0aXM6dW5jZXJ0YWludHkgVGhldGlzOmFubm90YXRpb25zOmNkMWE0Mzc4ZjgxYjQ1NzVlNmU4OWIwOWJlZjE3NjYxPC9GZWF0dXJlcz4NCiAgPExpY2Vuc2VlPg0KICAgIDxDb21wYW55TmFtZT5Kb24gRG9lIENvbXBhbnk8L0NvbXBhbnlOYW1lPg0KICAgIDxDb250YWN0TmFtZT5Kb24gRG9lPC9Db250YWN0TmFtZT4NCiAgICA8QWRkcmVzc0xpbmVzPg0KICAgICAgPHN0cmluZz5FeGFtcGxlIFN0cmVldCA0Mjwvc3RyaW5nPg0KICAgIDwvQWRkcmVzc0xpbmVzPg0KICAgIDxQb3N0YWxDb2RlPjEyMzQ1PC9Qb3N0YWxDb2RlPg0KICAgIDxDaXR5PkV4YW1wbGUgQ2l0eTwvQ2l0eT4NCiAgICA8Q291bnRyeT5HZXJtYW55PC9Db3VudHJ5Pg0KICA8L0xpY2Vuc2VlPg0KICA8TGljZW5zZXI+DQogICAgPENvbXBhbnlOYW1lPmU6ZnMgVGVjaEh1YiBHbWJIPC9Db21wYW55TmFtZT4NCiAgICA8QWRkcmVzc0xpbmVzPg0KICAgICAgPHN0cmluZz5Eci4tTHVkd2lnLUtyYXVzLVN0ci4gNjwvc3RyaW5nPg0KICAgIDwvQWRkcmVzc0xpbmVzPg0KICAgIDxQb3N0YWxDb2RlPjg1MDgwPC9Qb3N0YWxDb2RlPg0KICAgIDxDaXR5PkdhaW1lcnNoZWltPC9DaXR5Pg0KICAgIDxDb3VudHJ5Pkdlcm1hbnk8L0NvdW50cnk+DQogIDwvTGljZW5zZXI+DQogIDxFeHBpcnlEYXRlPjIwMjQtMTItMzFUMDA6MDA6MDA8L0V4cGlyeURhdGU+DQogIDxOb3Rlcz4NCiAgICA8c3RyaW5nPkV2YWx1YXRpb24gbGljZW5zZS4gVGhlIHRlcm1zIG9mIHRoZSBldmFsdWF0aW9uIHZlcnNpb24gbGljZW5zZSBhZ3JlZW1lbnQgYXBwbHkuPC9zdHJpbmc+DQogIDwvTm90ZXM+DQogIDxMaWNlbnNlQmluZGluZyAvPg0KICA8U2VhdHM+MTwvU2VhdHM+DQo8L0xpY2Vuc2VJbmZvPg==</Key>
+  <Signature>OtBuqn730tgJjxvkIQvS0B7RcXUFcE0ZNuZuHcLda5z+EJkvkoVO9tsksNVs3emuA1sROskiR36ZgGBZMbmEAd7OV674JAgNQaiOAMOTpqS5fHqaAjpE817eBAsJeCfkve0ld0/8ZdB5+thadYT+ad2j4iboIC7rWkdGhP9ZUha/kNmchvT+y+d2Fb0mOMrgX4RLb/59ob8c3/8FW0e3Wu7JkoY+Nu+8umjlE6IWaXbLe2qeF6NgPvlv302I+4BhzyWwkrpbvi1g7W7YCboFGRsA2vTJ11QdiimTRz24pqyXygLJ977eyyYrDvHznjA1vlN4BIiRR/kkeJlE9oBg3KW8VLP70A7CsjvhOl5fKIfQGNzfqzOvviLjrPc+JLBOAqhcPOmXZvDNfFpNmmC/h2Bsujm1Co2IxOSXE1dpcRStpnbCKKRf1uyq1vFFUInWy7rHYM62x39/YL55ZhkRQE+OGfS2Ak6Ho3k5QAtdbn8sObvKKWLZ1p6q9hlkimNM6kg2Lhqaet5IDEyM1qfpTkQyJFZr30bdK2rbsHAEAAjrXl9RiA6MTYzdOBjQg1yLM7QbO09PHqfFXDPEBh9mQLDmyx/XvDfrqpkVUU/DGx9ZY5nTQjjb+mbYRIXZ+j7erR5mLZOfwXnAwmXX+wn7eHGngwS5MB9WH2LxaZNJCvc=</Signature>
+</LicenseKey>

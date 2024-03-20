@@ -16,11 +16,13 @@ task: "classification"
 # language of the final report. Can be one of: "en", "de"
 language: "en"
 
-# distinct classes for classification example
-distinct_classes: ["<=50K", ">50K"]
+# task settings for classification
+task_settings:
+  # distinct classes for classification example
+  distinct_classes: [ "<=50K", ">50K" ]
 
-# binary label - required for classification example
-binary_positive_label: ">50K"
+  # binary label - required for classification example
+  binary_positive_label: ">50K"
 
 # settings for the data evaluation routine
 data_evaluation:
@@ -45,5 +47,6 @@ fairness:
   examine: true
 
   # sensitive attribute required for classification example
-  race: "all"
-  sex: "all"
+  sensitive_attributes:
+    race: "all"
+    sex: "all"

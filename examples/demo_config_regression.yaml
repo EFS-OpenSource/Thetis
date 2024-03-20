@@ -1,0 +1,39 @@
+# meta data of model predictions and data set
+meta:
+
+  model:
+    name: "Demo Predictions"
+    revision: "r1"
+
+  dataset:
+    name: "Demo Annotations"
+    revision: "r1"
+
+
+# examination task
+task: "regression"
+
+# language of the final report. Can be one of: "en", "de"
+language: "en"
+
+# settings for the data evaluation routine
+data_evaluation:
+  examine: true
+
+# settings for the AI baseline performance evaluation (which should be always performed!)
+performance:
+  examine: true
+
+# settings for the evaluation of uncertainty calibration
+uncertainty:
+  examine: true
+
+# settings for the evaluation of model fairness
+fairness:
+  examine: true
+
+  # sensitive attribute required for regression example
+  sensitive_attributes:
+    age:
+    gender:
+

@@ -128,12 +128,12 @@ within the current repository or `click here <https://thetishostedfiles.blob.cor
 
 The library simply expects two Pandas data frames:
 
-* :code:`pd.DataFrame` with ground-truth information about the data set. The column :code:`target` is required holding
-  the ground-truth target information. Furthermore, columns for sensitive attributes are expected that have been
+* :code:`pd.DataFrame` with ground truth information about the data set. The column :code:`target` is required holding
+  the ground truth target information. Furthermore, columns for sensitive attributes are expected that have been
   configured for the AI Fairness evaluation.
 * :code:`pd.DataFrame` for the AI predictions for each sample in the data set. The columns :code:`labels` and
   :code:`confidence` are required, holding information about the predicted label and the respective prediction
-  probability (model uncertainty or confidence). Note that the indices of the data frames for ground-truth information
+  probability (model uncertainty or confidence). Note that the indices of the data frames for ground truth information
   and predictions must match.
 
 The final rating and recommendations for mitigation strategies can be found in the :code:`result` JSON-like dictionary
@@ -226,17 +226,17 @@ files and run inference with the Torchvision model:
 Expected Data Format for Object Detection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After loading the ground-truth information and running inference using an AI model (see example above),
+After loading the ground truth information and running inference using an AI model (see example above),
 it is required to bring the predictions and annotations in the right format. In object detection evaluation mode,
 Thetis expects a Python dictionary for the predictions and annotations, where the keys represent the image identifiers
-(e.g., image name) and the values represent the individual (predicted or ground-truth) objects within a single frame.
+(e.g., image name) and the values represent the individual (predicted or ground truth) objects within a single frame.
 
 .. code-block:: python
 
    import pandas as pd
 
    # Thetis expects a dictionary with image name as key and a pd.DataFrame with predicted information as value.
-   # A similar format is also expected for the ground-truth annotations with extra sensitive attributes
+   # A similar format is also expected for the ground truth annotations with extra sensitive attributes
    # used for fairness evaluation. The field "__meta__" is always required with meta information for each frame.
    annotations = {"__meta__": pd.DataFrame(columns=["width", "height"])}
    predictions = {}
@@ -261,7 +261,7 @@ Thetis expects a Python dictionary for the predictions and annotations, where th
            "ymax": predicted_boxes[:, 3][filter],
        })
 
-       # add ground-truth information also as pd.DataFrame with additional sensitive attributes
+       # add ground truth information also as pd.DataFrame with additional sensitive attributes
        annotations[filename] = pd.DataFrame.from_dict({
            "target": anns["classes"],
            "gender": anns["gender"],
@@ -275,14 +275,14 @@ Thetis expects a Python dictionary for the predictions and annotations, where th
        # some additional meta information such as image width and height are also required
        annotations["__meta__"].loc[filename] = [anns["image_width"], anns["image_height"]]
 
-Important: the dictionary for the ground-truth annotations requires a key "__meta__" which holds width and height
+Important: the dictionary for the ground truth annotations requires a key "__meta__" which holds width and height
 information for each image within the data set (provided as Pandas DataFrame). Note that the index of the entries within
 this DataFrame must match with the keys (aka image identifiers) of the Python dictionaries.
 
 Running AI Safety Evaluation with Thetis
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If the data is in the right format, you can simply pass the predictions and ground-truth information in conjunction
+If the data is in the right format, you can simply pass the predictions and ground truth information in conjunction
 with the configuration to the Thetis evaluation routine:
 
 .. code-block:: python
@@ -311,6 +311,6 @@ for the different evaluation aspects:
   or :code:`'BAD'` depending on the rating score.
 
 Note that the remaining evaluation metrics are grouped by the specified IoU scores which are used for the matching
-of predicted objects with ground-truth ones (e.g., an IoU score of 0.5 might be used to decide if a prediction
-has matched an existing ground-truth object or not). In the configuration file, you can specify multiple IoU scores
+of predicted objects with ground truth ones (e.g., an IoU score of 0.5 might be used to decide if a prediction
+has matched an existing ground truth object or not). In the configuration file, you can specify multiple IoU scores
 that are taken into account for the final evaluation process.

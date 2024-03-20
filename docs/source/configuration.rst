@@ -27,70 +27,79 @@ An exemplary YAML configuration for Thetis must have the following form:
        revision: "r1"
 
 
-   # examination task. Can be one of: "classification" (binary/multi-class classification),
-   # "detection" (image-based object detection)
+   # Examination task. Can be one of: "classification" (binary/multi-class classification),
+   # "detection" (image-based object detection) or "regression"
    task: "classification"
 
-   # language of the final report. Can be one of: "en", "de"
+   # Language of the final report. Can be one of: "en", "de"
    language: "en"
 
-   # list of distinct classes that can occur within the data set
-   distinct_classes: ["no person", "person"]
-
-   # in binary classification (when 'distinct_classes' has length of 2), you must specify a positive label out of
-   # the list of available classes. This is important since you only give a single "confidence" for each prediction,
-   # targeting the probability of the positive class
-   binary_positive_label: "person"
-
-   # you can specify some general settings here (atm only detection-specific settings)
+   # Task-specific settings. Required and available fields depend on the selected task.
    task_settings:
 
-     # bounding-box format. Can be one of: "xyxy" (xmin, ymin, xmax, ymax), "xywh" (xmin, ymin, width, height),
+     # List of distinct classes that can occur within the data set (can only be set for classification or
+     # object detection). If specified then this parameter cannot be empty.
+     distinct_classes: ["no person", "person"]
+
+     # In binary classification (when 'distinct_classes' has length of 2), you must specify a positive label out of
+     # the list of available classes. This is important since you only give a single "confidence" for each prediction,
+     # targeting the probability of the positive class. May only be specified for binary classification.
+     binary_positive_label: "person"
+
+     # Bounding-box format. Can be one of: "xyxy" (xmin, ymin, xmax, ymax), "xywh" (xmin, ymin, width, height),
      # or "cxcywh" (center x, center y, width, height).
      detection_bbox_format: "xyxy"
 
-     # list with IoU scores used for object detection evaluation
+     # List with IoU scores used for object detection evaluation
      # Note: the IoU score "0.5" is always active for the evaluation. You can specify more IoU scores if you want
      detection_bbox_ious: [0.75]
 
-     # set to true if the bounding boxes are also inferred with a separate variance score (currently not supported)
+     # String with bounding box matching strategy. Must be one of: "exclusive", "max".
+     detection_bbox_matching: "exclusive"
+
+     # Set to true if the bounding boxes are also inferred with a separate variance score (currently not supported)
      detection_bbox_probabilistic: false
 
-     # in detection mode, it is possible to set a confidence threshold
+     # In detection mode, it is possible to set a confidence threshold
      # to discard blurry predictions with low confidence
      detection_confidence_thr: 0.2
 
-   # settings for the data evaluation routine
+     # In detection mode it is possible to specify tolerance zone outside image bounds within which clipping is applied. The boxes within these zones are 
+     # clipped to the image dimensions. For boxes outside the specified tolerance, an error is raised instead.
+     detection_bbox_clipping: 20%
+
+   # Settings for the data evaluation routine
    data_evaluation:
      examine: true
 
-   # settings for the AI baseline performance evaluation (which should be always performed!)
+   # Settings for the AI baseline performance evaluation (which should be always performed!)
    performance:
      examine: true
 
-   # settings for the evaluation of confidence calibration
+   # Settings for the evaluation of confidence calibration
    uncertainty:
      examine: true
 
-     # number of bins used for ECE calculation, required for classification and detection evaluation
+     # Number of bins used for ECE calculation, required for classification and detection evaluation
      ece_bins : 20
 
-     # during ECE/D-ECE computation, bins with a number of samples less than this threshold are ignored
-     # required for classification and detection evaluation
+     # During ECE/D-ECE computation, bins with a number of samples less than this threshold are ignored
+     # Required for classification and detection evaluation
      ece_sample_threshold: 10
 
-     # number of bins used for D-ECE calculation (object detection), required for detection evaluation
+     # Number of bins used for D-ECE calculation (object detection), required for detection evaluation
      dece_bins: 5
 
-   # settings for the evaluation of model fairness
+   # Settings for the evaluation of model fairness
    fairness:
      examine: true
 
-     # specify sensitive attributes that are used for fairness evaluation. For each of these attributes,
+     # Specify sensitive attributes that are used for fairness evaluation. For each of these attributes,
      # you need to specify the classes for which the attributes are actually valid (out of the labels
-     # within 'distinct_classes' list). You can also type "all" to mark validity for all classes.
-     gender: ["no person", "person"]
-     age: "all"
+     # within 'distinct_classes' list). You can also leave it empty or type "all" to mark validity for all classes.
+     sensitive_attributes:
+       gender: ["no person", "person"]
+       age: "all"
 
 
 General Application Settings
@@ -113,10 +122,10 @@ In the following, we give a detailed overview about all possible general configu
      - Revision of the AI model used to generate predictions.
    * - :code:`meta/dataset/name`
      - string
-     - Name of the data set holding the ground-truth information.
+     - Name of the data set holding the ground truth information.
    * - :code:`meta/dataset/revision`
      - string
-     - Revision of the data set holding the ground-truth information.
+     - Revision of the data set holding the ground truth information.
 
 
 .. list-table:: General application settings
@@ -132,10 +141,10 @@ In the following, we give a detailed overview about all possible general configu
    * - :code:`language`
      - string
      - Language of the final evaluation report. Can be one of: "en" (US English), "de" (German).
-   * - :code:`distinct_classes`
+   * - :code:`task_settings/distinct_classes`
      - list of int or string
-     - List of distinct classes that can occur within the data set.
-   * - :code:`binary_positive_label`
+     - List of distinct classes that can occur within the data set. Only to be provided in case of Classification or Detection
+   * - :code:`task_settings/binary_positive_label`
      - int or string
      - In binary classification (when 'distinct_classes' has length of 2), you must specify a positive label out of
        the list of available classes. This is important since you only give a single "confidence" for each prediction,
@@ -148,12 +157,26 @@ In the following, we give a detailed overview about all possible general configu
      - list of float
      - List with IoU scores (in [0, 1] interval) used for object detection evaluation.
        Note: the IoU score "0.5" is always active for the evaluation. You can specify more IoU scores if you want.
+   * - :code:`task_settings/detection_bbox_matching`
+     - string
+     - String with bounding box matching strategy within object detection evalulation. The strategy of matching the
+       predicted bounding boxes with the ground truth ones must either be "exclusive" with
+       exclusive bounding box matching where each prediction and each ground truth are assigned
+       to a single counter-part, or "max" with maximum/non-exclusive bounding box matching where each ground truth object
+       may have multiple predictions assigned to it. Default is "exclusive".
    * - :code:`task_settings/detection_bbox_probabilistic`
      - boolean
      - Currently not used.
    * - :code:`task_settings/detection_confidence_thr`
      - float
      - In detection mode, it is possible to set a confidence threshold (in [0, 1] interval) to discard blurry predictions with low confidence.
+  * - :code:`task_settings/detection_bbox_clipping`
+     - int
+     - In detection mode, it is possible to specify tolerance zone outside the image in case of boxes that are out of image bounds.
+       This can be ommitted, in which case no clipping is applied and an error is raised if a box is out of image bounds.
+       Alternatively, it can be set to relative(relative to image width and height)% ([0-100]%) or absolute values in px ([int]px). 
+       These specify the dimensions outside the image, such that if any boxes extend into this tolerance zone, they will get clipped to the image dimensions. 
+       If boxes exceed these tolerance zones no clipping will be applied, an error will be raised instead.
 
 Configuration of Safety Evaluation
 ----------------------------------
@@ -215,10 +238,10 @@ Configuration of Safety Evaluation
    * - :code:`fairness/examine`
      - boolean
      - Enables/disables the AI fairness evaluation for the final rating & reporting.
-   * - :code:`fairness/<label name>`
-     - string or list of int/string
+   * - :code:`fairness/sensitive_attributes/<label name>`
+     - optional string or list of int/string
      - Specify one or multiple sensitive attributes (e.g., gender or age) that are used for fairness evaluation.
        The value of this entry is a list of target classes (given by "distinct_classes" parameter) for which the
        sensitive attribute is valid. For example, if "distinct_classes" specifies labels "person" and "car", a
        sensitive attribute for "gender" might only be valid for target label "person". If the attribute is valid for
-       all specified target labels, you can also pass the value "all".
+       all specified target labels, you can also leave the value empty or pass "all".

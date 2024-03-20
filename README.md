@@ -120,8 +120,8 @@ result = thetis(
 
 Thetis expects two Pandas data frames to run an evaluation:
 
-* *Annotations*: `pd.DataFrame` with ground-truth information about the data set. The column `target` is required, holding
-  the ground-truth target information. Furthermore, columns for sensitive attributes are expected that have been
+* *Annotations*: `pd.DataFrame` with ground truth information about the data set. The column `target` is required, holding
+  the ground truth target information. Furthermore, columns for sensitive attributes are expected that have been
   configured for the AI Fairness evaluation.
 * *Predictions*: `pd.DataFrame` with the AI predictions for each sample in the data set. The columns `labels` and
   `confidence` are required, holding information about the predicted label and the respective prediction
@@ -216,16 +216,16 @@ for filename in tqdm(annotation_files, desc="Running inference on images ..."):
 
 #### Expected Data Format for Object Detection
 
-After loading the ground-truth information and running inference using an AI model (see example above),
+After loading the ground truth information and running inference using an AI model (see example above),
 we must format our predictions and annotations in a way that can be ingested by Thetis. In object detection evaluation mode,
 Thetis expects a Python dictionary for the predictions and annotations, where the keys represent the image identifiers
-(e.g., image name) and the values represent the individual (predicted or ground-truth) objects within a single frame.
+(e.g., image name) and the values represent the individual (predicted or ground truth) objects within a single frame.
 
 ```python
 import pandas as pd
 
 # Thetis expects a dictionary with image name as key and a pd.DataFrame with predicted information as value.
-# A similar format is also expected for the ground-truth annotations with extra sensitive attributes
+# A similar format is also expected for the ground truth annotations with extra sensitive attributes
 # used for fairness evaluation. The field "__meta__" is always required with meta information for each frame.
 annotations = {"__meta__": pd.DataFrame(columns=["width", "height"])}
 predictions = {}
@@ -250,7 +250,7 @@ for pred, anns in data:
         "ymax": predicted_boxes[:, 3][filter],
     })
 
-    # add ground-truth information also as pd.DataFrame with additional sensitive attributes
+    # add ground truth information also as pd.DataFrame with additional sensitive attributes
     annotations[filename] = pd.DataFrame.from_dict({
         "target": anns["classes"],
         "gender": anns["gender"],
@@ -265,13 +265,13 @@ for pred, anns in data:
     annotations["__meta__"].loc[filename] = [anns["image_width"], anns["image_height"]]
 ```
 
-*Important*: The dictionary for the ground-truth annotations requires a key `__meta__` which holds width and height
+*Important*: The dictionary for the ground truth annotations requires a key `__meta__` which holds width and height
 information for each image within the data set, provided as Pandas DataFrame. Note that the index of the entries within
 this DataFrame must match with the keys (i.e. image identifiers) of the Python dictionaries.
 
 #### Running AI Safety Evaluation with Thetis
 
-Given your data is in the right format, simply call Thetis with the predictions, the ground-truth information and the
+Given your data is in the right format, simply call Thetis with the predictions, the ground truth information and the
 prepared configuration file:
 
 ```python
@@ -300,6 +300,6 @@ We capture the dictionary as `result` and can access the different evaluation as
   or `'BAD'` depending on the rating score.
 
 Note that the remaining evaluation metrics are grouped by the specified IoU scores which are used for the matching
-of predicted objects with ground-truth ones (e.g., an IoU score of 0.5 might be used to decide if a prediction
-has matched an existing ground-truth object or not). In the configuration file, you can specify multiple IoU scores
+of predicted objects with ground truth ones (e.g., an IoU score of 0.5 might be used to decide if a prediction
+has matched an existing ground truth object or not). In the configuration file, you can specify multiple IoU scores
 that are taken into account for the final evaluation process.
