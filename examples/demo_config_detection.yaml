@@ -22,6 +22,7 @@ task_settings:
   detection_bbox_ious: [0.5, 0.75]
   detection_bbox_matching: "exclusive"
   detection_bbox_probabilistic: false
+  detection_bbox_clipping: 40%
   distinct_classes: ["person", "car"]
 
   # in detection mode, it is possible to set a confidence threshold
