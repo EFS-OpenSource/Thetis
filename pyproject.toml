@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "thetis"
-description = "Service to examine data processing pipelines (e.g., machine learning or deep learning pipelines) for uncertainty consistency (calibration), fairness, and other safety-relevant aspects."
+description = "Solution for AI system analysis regarding performance, uncertainty consistency (calibration), fairness, and other aspects relevant for regulatory compliance."
 requires-python = ">=3.8"
 authors = [
     { email = "fabian.kueppers@efs-techhub.com" },

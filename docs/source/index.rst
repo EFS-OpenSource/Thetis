@@ -1,18 +1,17 @@
-=====================
-User Guide for Thetis
-=====================
+=================
+Thetis user guide
+=================
 
 .. toctree::
    :maxdepth: 2
 
-   quickstart
    installation
+   examples
    api
    configuration
    data
    aspects
    subscription
-   compliance
 
 .. include:: /../../README.md
    :parser: myst_parser.sphinx_

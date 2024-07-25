@@ -1,10 +1,5 @@
-#  ****************************************************************************
-#  MLflow-compatible wrapper function for Thetis.
-#
-#  @copyright (c) 2023 e:fs TechHub GmbH. All rights reserved.
+#  @copyright (c) 2024 e:fs TechHub GmbH. All rights reserved.
 #  Dr.-Ludwig-Kraus-Straße 6, 85080 Gaimersheim, DE, https://www.efs-techhub.com
-#  ****************************************************************************
-
 """
 API Reference of Thetis
 =======================

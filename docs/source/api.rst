@@ -1,16 +1,16 @@
-.. _API Documentation:
+.. _API documentation:
 
-API Documentation
+API documentation
 =================
 
-Main Routine
+Main routine
 ------------
 .. autofunction:: thetis.thetis
 
-MLflow Format
+MLflow format
 -------------
 .. autofunction:: thetis.thetis_mlflow
 
-Tensorboard Format
+Tensorboard format
 ------------------
 Coming soon

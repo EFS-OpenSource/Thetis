@@ -1,4 +1,4 @@
-# meta data of model predictions and data set
+# meta data of model predictions and dataset
 meta:
 
   model:
@@ -6,7 +6,7 @@ meta:
     revision: "V2"
 
   dataset:
-    name: "Demo Carla Detection Data Set"
+    name: "Demo Carla Detection dataset"
     revision: "r1"
 
 

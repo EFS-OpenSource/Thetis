@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: Thetis AI Safety Evaluation Toolbox
+title: Thetis AI System Analysis Toolbox
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
@@ -21,10 +21,9 @@ authors:
 repository-code: 'https://github.com/EFS-OpenSource/Thetis'
 url: 'https://efs-techhub.com/efs-portfolio/loesungen/thetis'
 abstract: >-
-  Service to examine data processing pipelines (e.g.,
-  machine learning or deep learning pipelines) for
+  Solution for AI system analysis regarding performance,
   uncertainty consistency (calibration), fairness, and other
-  safety-relevant aspects.
+  aspects relevant for regulatory compliance.
 keywords:
   - ai
   - machine learning

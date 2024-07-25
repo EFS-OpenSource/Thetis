@@ -1,6 +1,7 @@
 .. _Subscription:
 
-Subscription and Pricing
+Subscription and pricing
 ========================
 
-The Thetis toolbox is still in open demo stage. We will release our subscription models soon!
+For inquiries about pricing and subscriptions, please reach out to us at `efs-techhub.com <https://efs-techhub.com/efs-portfolio/loesungen/thetis>`__.
+We look forward to discussing how Thetis can support your AI system analysis and regulatory compliance needs.

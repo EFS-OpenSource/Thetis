@@ -1,18 +1,15 @@
 .. _Background:
 
-Safety Aspects
-==============
+Key evaluation aspects
+======================
 
-In this section, we give a detailed overview about the safety aspects that are covered by Thetis.
+In this section, we give a detailed overview of the key evaluation aspects that are covered by Thetis.
 
 .. toctree::
    :maxdepth: 1
 
-   safety-aspects/uncertainty
-   safety-aspects/performance
-   safety-aspects/data_evaluation
-   safety-aspects/fairness
-   safety-aspects/robustness
-   safety-aspects/explainability
-
-
+   evaluation-aspects/uncertainty
+   evaluation-aspects/performance
+   evaluation-aspects/data_evaluation
+   evaluation-aspects/fairness
+   evaluation-aspects/robustness

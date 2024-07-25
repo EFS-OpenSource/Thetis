@@ -16,7 +16,7 @@ from thetis import __version__
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'thetis'
-copyright = '2023, e:fs TechHub GmbH'
+copyright = '2024, e:fs TechHub GmbH'
 author = 'e:fs TechHub GmbH'
 
 # The full version, including alpha/beta/rc tags

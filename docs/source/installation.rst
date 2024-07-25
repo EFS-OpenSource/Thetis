@@ -27,8 +27,31 @@ runtime environment that is used during application execution:
 * <abi tag> describes the Application Binary Interface (ABI) version for which the wheel has been built (e.g., "cp38" stands for Python version 3.8).
 * <platform tag> describes the platform for which the application has been built (e.g, "manylinux" works for most Unix-based systems).
 
-Issues & Bugtracking
-====================
 
-If you experience any issues during installation, running, or handling Thetis, please create an issue on
+Getting started
+---------------
+
+To get started with Thetis, follow these steps:
+
+1. **Prepare your environment:**
+   Ensure you have a Python environment set up. Install Thetis using the instructions provided above.
+
+2. **Obtain a license:**
+   Thetis requires a license to operate. Free demo licenses are provided with the examples in this repository.
+   For professional use or to analyze your own data, contact us at
+   `efs-techhub.com <https://efs-techhub.com/efs-portfolio/loesungen/thetis>`__
+   to obtain a license. Place the license file in your working directory or in the appropriate location based on your operating system.
+
+3. **Explore examples:**
+   Review our :doc:`usage examples <examples>` to understand how to use Thetis for different AI tasks.
+
+4. **Run your analysis:**
+   Integrate your AI model and data with Thetis, then perform the desired analysis. Refer to the detailed
+   :doc:`API documentation <api>` and :doc:`configuration options <configuration>` for more information.
+
+
+Issues & bugtracking
+--------------------
+
+If you experience any issues during installation, running, or handling Thetis, please create an issue on the
 `e:fs Github page <https://github.com/efs-OpenSource/thetis>`__ and post the provided stack trace.

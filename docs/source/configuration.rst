@@ -8,14 +8,14 @@ evaluation aspects, etc. `Download an exemplary configuration file <https://efs-
 following configuration file. An explanation for each configuration aspect can be found below.
 
 
-Example Configuration File
+Example configuration file
 --------------------------
 
 An exemplary YAML configuration for Thetis must have the following form:
 
 .. code-block:: yaml
 
-   # meta data of model predictions and data set
+   # meta data of model predictions and dataset
    meta:
 
      model:
@@ -23,7 +23,7 @@ An exemplary YAML configuration for Thetis must have the following form:
        revision: "<model revision>"
 
      dataset:
-       name: "<data set name>"
+       name: "<dataset name>"
        revision: "r1"
 
 
@@ -37,7 +37,7 @@ An exemplary YAML configuration for Thetis must have the following form:
    # Task-specific settings. Required and available fields depend on the selected task.
    task_settings:
 
-     # List of distinct classes that can occur within the data set (can only be set for classification or
+     # List of distinct classes that can occur within the dataset (can only be set for classification or
      # object detection). If specified then this parameter cannot be empty.
      distinct_classes: ["no person", "person"]
 
@@ -64,7 +64,7 @@ An exemplary YAML configuration for Thetis must have the following form:
      # to discard blurry predictions with low confidence
      detection_confidence_thr: 0.2
 
-     # In detection mode it is possible to specify tolerance zone outside image bounds within which clipping is applied. The boxes within these zones are 
+     # In detection mode it is possible to specify a tolerance zone outside image bounds within which clipping is applied. The boxes within these zones are 
      # clipped to the image dimensions. For boxes outside the specified tolerance, an error is raised instead.
      detection_bbox_clipping: 20%
 
@@ -102,12 +102,12 @@ An exemplary YAML configuration for Thetis must have the following form:
        age: "all"
 
 
-General Application Settings
+General application settings
 ----------------------------
 
 In the following, we give a detailed overview about all possible general configuration settings.
 
-.. list-table:: Meta information settings describing the customer information, model properties, and used data set.
+.. list-table:: Meta information settings describing the customer information, model properties, and used dataset.
    :widths: 35 10 55
    :header-rows: 1
 
@@ -122,10 +122,10 @@ In the following, we give a detailed overview about all possible general configu
      - Revision of the AI model used to generate predictions.
    * - :code:`meta/dataset/name`
      - string
-     - Name of the data set holding the ground truth information.
+     - Name of the dataset holding the ground truth information.
    * - :code:`meta/dataset/revision`
      - string
-     - Revision of the data set holding the ground truth information.
+     - Revision of the dataset holding the ground truth information.
 
 
 .. list-table:: General application settings
@@ -143,7 +143,7 @@ In the following, we give a detailed overview about all possible general configu
      - Language of the final evaluation report. Can be one of: "en" (US English), "de" (German).
    * - :code:`task_settings/distinct_classes`
      - list of int or string
-     - List of distinct classes that can occur within the data set. Only to be provided in case of Classification or Detection
+     - List of distinct classes that can occur within the dataset. Only to be provided in case of Classification or Detection
    * - :code:`task_settings/binary_positive_label`
      - int or string
      - In binary classification (when 'distinct_classes' has length of 2), you must specify a positive label out of
@@ -159,29 +159,28 @@ In the following, we give a detailed overview about all possible general configu
        Note: the IoU score "0.5" is always active for the evaluation. You can specify more IoU scores if you want.
    * - :code:`task_settings/detection_bbox_matching`
      - string
-     - String with bounding box matching strategy within object detection evalulation. The strategy of matching the
-       predicted bounding boxes with the ground truth ones must either be "exclusive" with
-       exclusive bounding box matching where each prediction and each ground truth are assigned
-       to a single counter-part, or "max" with maximum/non-exclusive bounding box matching where each ground truth object
-       may have multiple predictions assigned to it. Default is "exclusive".
+     - String with bounding box matching strategy within object detection evaluation. The strategy of matching the predicted bounding boxes
+       with the ground truth ones must be either "exclusive," where each prediction and each ground truth are assigned to at most a single counterpart,
+       or "max," with maximum/non-exclusive bounding box matching, where each ground truth object may have multiple predictions assigned to it.
+       The default is "exclusive".
    * - :code:`task_settings/detection_bbox_probabilistic`
      - boolean
      - Currently not used.
    * - :code:`task_settings/detection_confidence_thr`
      - float
      - In detection mode, it is possible to set a confidence threshold (in [0, 1] interval) to discard blurry predictions with low confidence.
-  * - :code:`task_settings/detection_bbox_clipping`
+   * - :code:`task_settings/detection_bbox_clipping`
      - int
-     - In detection mode, it is possible to specify tolerance zone outside the image in case of boxes that are out of image bounds.
+     - In detection mode, it is possible to specify a tolerance zone outside the image in case of boxes that are out of image bounds.
        This can be ommitted, in which case no clipping is applied and an error is raised if a box is out of image bounds.
        Alternatively, it can be set to relative(relative to image width and height)% ([0-100]%) or absolute values in px ([int]px). 
        These specify the dimensions outside the image, such that if any boxes extend into this tolerance zone, they will get clipped to the image dimensions. 
        If boxes exceed these tolerance zones no clipping will be applied, an error will be raised instead.
 
-Configuration of Safety Evaluation
+Configuration of safety evaluation
 ----------------------------------
 
-.. list-table:: Configuration settings for data set evaluation.
+.. list-table:: Configuration settings for dataset evaluation.
    :widths: 35 10 55
    :header-rows: 1
 

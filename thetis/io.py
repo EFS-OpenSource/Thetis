@@ -1,9 +1,9 @@
-#  ****************************************************************************
-#  Module with IO functions used to read/write Thetis-compatible files.
-#
-#  @copyright (c) 2023 e:fs TechHub GmbH. All rights reserved.
+#  @copyright (c) 2024 e:fs TechHub GmbH. All rights reserved.
 #  Dr.-Ludwig-Kraus-Straße 6, 85080 Gaimersheim, DE, https://www.efs-techhub.com
-#  ****************************************************************************
+"""
+This module provides functions to read and write JSON files that may contain references
+to external pandas DataFrames.
+"""
 
 from typing import Dict
 
@@ -17,10 +17,10 @@ def read_json_with_pandas(json_filename: str) -> Dict:
     additional data.
 
     Args:
-        json_filename: str with the filename to the root JSON file.
+        json_filename: The filename of the root JSON file.
 
     Returns:
-        Dict with the content of the JSON file.
+        A dictionary containing the content of the JSON file.
     """
 
     return read_core(json_filename=json_filename)
@@ -29,15 +29,15 @@ def read_json_with_pandas(json_filename: str) -> Dict:
 def write_json_with_pandas(
         json_like: Dict,
         filename: str,
-):
+) -> None:
     """
     Write a dictionary with pd.DataFrames as single entries to a JSON file.
     All data will be written to a single JSON file with JSON string representations of the provided pd.DataFrame
     instances.
 
     Args:
-        json_like: Dict with the input dictionary with pd.DataFrame entries.
-        filename: str with the filename to write.
+        json_like: The input dictionary with pd.DataFrame entries.
+        filename: The filename to write the JSON data to.
     """
 
-    return write_core(json_like=json_like, filename=filename)
+    write_core(json_like=json_like, filename=filename)

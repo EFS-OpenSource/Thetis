@@ -163,6 +163,6 @@ cython_debug/
 **.csv
 **.json
 
-# ignore demo data sets when unpacked in examples directory
+# ignore demo datasets when unpacked in examples directory
 /examples/demo_detection
 /examples/output

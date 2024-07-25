@@ -15,7 +15,7 @@ Please provide the stack trace that the application has given to you
 
 **To Reproduce**
 - Execution-Command:
-- Brief description of the used data set
+- Brief description of the used dataset
 
 **Environment:**
  - OS: 

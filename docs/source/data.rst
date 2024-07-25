@@ -1,14 +1,14 @@
-Preparing Input Data
+Preparing input data
 ====================
 
-The Thetis evaluation library only requires the output of an AI model on a dedicated evaluation data set.
+The Thetis evaluation library only requires the output of an AI model on a dedicated evaluation dataset.
 Thus, the application requires the ground truth target labels (not the data itself!) and the according AI predictions.
 We give a detailed overview about the required data format in the following.
 
-Binary Classification
+Binary classification
 ---------------------
 In the case of binary classification, Thetis expects two instances of a `Pandas DataFrame <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html>`__ :code:`pd.DataFrame`
-representing the annotations and the model predictions on the data set, respectively.
+representing the annotations and the model predictions on the dataset, respectively.
 
 Imagine that we have the variables :code:`annotations` and :code:`predictions` with annotations and predictions, respectively.
 If we print the content of :code:`annotations` to the Python console, it might output the following:
@@ -49,7 +49,7 @@ Accordingly, the output of :code:`predictions` might look like the following:
    img_08     person    0.970410
    img_09     person    0.931941
 
-The required column :code:`labels` holds the predicted label for each item in the data set, whereas the required
+The required column :code:`labels` holds the predicted label for each item in the dataset, whereas the required
 column :code:`confidence` represents the (binary) label confidence/uncertainty estimated by the AI model.
 
 **Important:** the :code:`confidence` refers to the :code:`binary_positive_label` specified in the `application config <#>`__.
@@ -57,7 +57,7 @@ The uncertainty for the negative class ("no person" in this case) is given by :c
 
 **Note:** the indices of the DataFrames :code:`annotations` and :code:`predictions` must match to each other.
 
-Multi-class Classification
+Multi-class classification
 --------------------------
 
 If you are working in a multi-class classification setting (setting "task" to "classification" with more than 2 entries
@@ -114,7 +114,7 @@ Regression
 ----------
 
 In the case of regression, Thetis expects two instances of a `Pandas DataFrame <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html>`__ :code:`pd.DataFrame`
-representing the annotations (target scores) and the model predictions on the data set, respectively.
+representing the annotations (target scores) and the model predictions on the dataset, respectively.
 
 Imagine that we have the variables :code:`annotations` and :code:`predictions` with annotations and predictions, respectively.
 If we print the content of :code:`annotations` to the Python console, it might output the following:
@@ -155,7 +155,7 @@ Accordingly, the output of :code:`predictions` might look like the following:
    sample_08     -0.342    0.098
    sample_09     -0.223    0.003
 
-The required column :code:`predictions` holds the predicted scores for each item in the data set. The *optional* column
+The required column :code:`predictions` holds the predicted scores for each item in the dataset. The *optional* column
 :code:`stddev` holds the *estimated* standard deviation for each predicted score representing the estimation
 uncertainty. Alternatively, the column :code:`variance` can also be passed with the according estimation variance.
 
@@ -163,7 +163,7 @@ uncertainty. Alternatively, the column :code:`variance` can also be passed with 
 
 **Note:** the indices of the DataFrames :code:`annotations` and :code:`predictions` must match to each other.
 
-Object Detection
+Object detection
 ----------------
 
 The input for the image-based object detection evaluation case differs compared to the classification cases.
