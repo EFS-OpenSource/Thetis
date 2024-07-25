@@ -25,7 +25,7 @@ This will install the latest available version of Thetis and all its dependencie
 
 ## Obtaining a license
 
-The [usage examples](https://github.com/EFS-OpenSource/Thetis/blob/main/examples/README.md) in this repository come with free demo licenses tied to each example. To try Thetis with your own data or to obtain a professional license, please contact us at [efs-techhub.com](https://efs-techhub.com/efs-portfolio/loesungen/thetis).
+The [usage examples](https://github.com/EFS-OpenSource/Thetis/blob/main/examples) in this repository come with free demo licenses tied to each example. To try Thetis with your own data or to obtain a professional license, please contact us at [efs-techhub.com](https://efs-techhub.com/efs-portfolio/loesungen/thetis).
 
 Thetis will automatically detect your license file if it is placed in your working directory or at the following locations:
 
