@@ -1,0 +1,31 @@
+details {
+  width: 100%;
+  margin: 0 auto ;
+  padding: 10px;
+  margin-bottom: .5rem;
+  box-shadow: 0 .1rem 1rem -.5rem rgba(0,0,0,.4);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+summary {
+  padding: 1rem;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: large;
+}
+
+summary:before {
+  content: '▶';
+  color: #000000;
+  border-width: .4rem;
+  border-style: solid;
+  border-color: transparent transparent transparent #fff;
+  transition: .25s transform ease;
+  font-size: large;
+}
+
+details[open] > summary:before {
+  content: '▼';
+}
