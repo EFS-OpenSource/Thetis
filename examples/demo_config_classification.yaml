@@ -6,7 +6,7 @@ meta:
     revision: "r1"
 
   dataset:
-    name: "Adult Dataset"
+    name: "Census Income"
     revision: "r1"
 
 

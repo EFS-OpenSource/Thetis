@@ -4,14 +4,14 @@ Configuration
 =============
 
 Thetis needs a YAML configuration file that specifies several aspects, e.g., the task, available classes, requested
-evaluation aspects, etc. `Download an exemplary configuration file <https://efs-techhub.com/efs-portfolio/loesungen/thetis>`__ or copy/paste the
+evaluation aspects, etc. `Download an example configuration file <https://raw.githubusercontent.com/EFS-OpenSource/Thetis/refs/heads/main/examples/demo_config_classification.yaml>`__ or copy/paste the
 following configuration file. An explanation for each configuration aspect can be found below.
 
 
 Example configuration file
 --------------------------
 
-An exemplary YAML configuration for Thetis must have the following form:
+A YAML configuration structure for Thetis has the following general form:
 
 .. code-block:: yaml
 

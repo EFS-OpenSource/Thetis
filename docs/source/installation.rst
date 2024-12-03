@@ -36,18 +36,15 @@ To get started with Thetis, follow these steps:
 1. **Prepare your environment:**
    Ensure you have a Python environment set up. Install Thetis using the instructions provided above.
 
-2. **Obtain a license:**
-   Thetis requires a license to operate. Free demo licenses are provided with the examples in this repository.
-   For professional use or to analyze your own data, contact us at
-   `efs-techhub.com <https://efs-techhub.com/efs-portfolio/loesungen/thetis>`__
-   to obtain a license. Place the license file in your working directory or in the appropriate location based on your operating system.
-
-3. **Explore examples:**
+2. **Explore examples:**
    Review our :doc:`usage examples <examples>` to understand how to use Thetis for different AI tasks.
 
-4. **Run your analysis:**
+3. **Run your analysis:**
    Integrate your AI model and data with Thetis, then perform the desired analysis. Refer to the detailed
    :doc:`API documentation <api>` and :doc:`configuration options <configuration>` for more information.
+   Note that in the free version, only a reduced set of evaluation aspects is supported. If you need the full
+   functionalities, a valid license is required.
+   Please reach out to us via `thetis@efs-techhub.com <mailto:thetis@efs-techhub.com>`__.
 
 
 Issues & bugtracking

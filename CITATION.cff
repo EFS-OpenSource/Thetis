@@ -19,7 +19,7 @@ authors:
     email: thorsten.gedicke@efs-techhub.com
     affiliation: 'e:fs TechHub GmbH'
 repository-code: 'https://github.com/EFS-OpenSource/Thetis'
-url: 'https://efs-techhub.com/efs-portfolio/loesungen/thetis'
+url: 'https://thetis.de'
 abstract: >-
   Solution for AI system analysis regarding performance,
   uncertainty consistency (calibration), fairness, and other

@@ -1,1 +1,1 @@
-thetiscore==0.2.1
+thetiscore==0.2.2
