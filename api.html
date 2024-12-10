@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>API documentation &mdash; Thetis User Guide</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/text.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/toggle.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '0.2.2',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/sphinx_highlight.js"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Thetis User Guide" href="index.html" />
+    <link rel="next" title="Configuration" href="configuration.html" />
+    <link rel="prev" title="Usage examples" href="examples.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Thetis User Guide</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">API documentation</a><ul>
+<li><a class="reference internal" href="#main-routine">Main routine</a><ul>
+<li><a class="reference internal" href="#thetis.thetis"><code class="docutils literal notranslate"><span class="pre">thetis()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mlflow-format">MLflow format</a><ul>
+<li><a class="reference internal" href="#thetis.thetis_mlflow"><code class="docutils literal notranslate"><span class="pre">thetis_mlflow()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tensorboard-format">Tensorboard format</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="examples.html" title="Usage examples" accesskey="P">previous </a></li>
+              <li><a href="configuration.html" title="Configuration" accesskey="N">next </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+            <li class="visible-xs"><a href="_sources/api.rst.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Usage examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#main-routine">Main routine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mlflow-format">MLflow format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tensorboard-format">Tensorboard format</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Preparing input data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aspects.html">Key evaluation aspects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription and pricing</a></li>
+</ul>
+
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <section id="api-documentation">
+<span id="id1"></span><h1>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this heading">¶</a></h1>
+<section id="main-routine">
+<h2>Main routine<a class="headerlink" href="#main-routine" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="thetis.thetis">
+<span class="sig-prename descclassname"><span class="pre">thetis.</span></span><span class="sig-name descname"><span class="pre">thetis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_perturbations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">license_file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">license_xml_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">license_key_and_signature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_svg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#thetis.thetis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main function for the Thetis evaluation toolkit. Given a ground truth dataset and the respective predictions
+by an AI model, this function examines various aspects such as performance, uncertainty consistency, fairness,
+and robustness. It supports tasks like classification, detection, and regression.</p>
+<p>Note: You must provide one of the following arguments for license validation: <cite>license_file_path</cite>,
+<cite>license_xml_str</cite>, or <cite>license_key_and_signature</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> – Application configuration options provided by the user.</p></li>
+<li><p><strong>predictions</strong> – Predictions made by the AI model.
+<strong>Classification:</strong> DataFrame with columns “labels” and “confidence”.
+<strong>Detection:</strong> Dict with DataFrame entries for each image, containing columns “labels”, “confidence”,
+and bounding box coordinates. The bounding box columns must correspond to the format specified in
+the user configuration.
+<strong>Regression:</strong> DataFrame with columns “predictions” and “stddev” (standard deviation).</p></li>
+<li><p><strong>annotations</strong> – Ground truth data.
+<strong>Classification:</strong> DataFrame with columns “target” and optionally sensitive attributes.
+<strong>Detection:</strong> Dict with DataFrame entries for each image, containing columns “target”, bounding box
+coordinates and optionally sensitive attributes. The bounding box columns must correspond to the format
+specified in the user configuration. Must also include a “__meta__” key with image metadata.
+<strong>Regression:</strong> DataFrame with columns “target” and optionally sensitive attributes.</p></li>
+<li><p><strong>output_dir</strong> – Path to the output directory where the PDF report will be stored. Default is None.</p></li>
+<li><p><strong>predictions_perturbations</strong> – AI predictions for each configured perturbation type.</p></li>
+<li><p><strong>license_file_path</strong> – Path to an XML license file to run the application.</p></li>
+<li><p><strong>license_xml_str</strong> – String representation of an XML license file to run the application.</p></li>
+<li><p><strong>license_key_and_signature</strong> – Tuple of license key and signature strings.</p></li>
+<li><p><strong>return_svg</strong> – boolean flag which enables/disables returning Matplotlib (SVG) figures. Default is False to filter
+out these figures as they cannot be serialized in plain JSON format. Set to True explicitly if
+you want to obtain the figures directly.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with the evaluation results, rating scores, and recommendations for the examined AI model.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>RuntimeError</strong> – if license_file_path is given but file path is malformed
+    (e.g., due to insufficient escaping of backslashes).</p></li>
+<li><p><strong>RuntimeError</strong> – if neither ‘license_file_path’, ‘license_xml_str’, ‘license_key_and_signature’, THETIS_LICENSE,
+    “license.dat” in working directory nor “license.dat” in user local home directory (OS specific)
+    could be found.</p></li>
+<li><p><strong>RuntimeError</strong> – if the license Key XML cannot be parsed.</p></li>
+<li><p><strong>RuntimeError</strong> – if the license Key XML cannot be parsed.</p></li>
+<li><p><strong>RuntimeError</strong> – if config is given as file path but file path is malformed
+    (e.g., due to insufficient escaping of backslashes).</p></li>
+<li><p><strong>RuntimeError</strong> – if the given language identifier is unknown or not supported.</p></li>
+<li><p><strong>RuntimeError</strong> – if the indices of the predicted and ground truth dataset do not match to each other
+    (classification or regression).</p></li>
+<li><p><strong>RuntimeError</strong> – if the arrays for predicted labels and ground truth dataset have different dtypes.</p></li>
+<li><p><strong>RuntimeError</strong> – if multi-class extraction failed and if more than 2 distinct classes are detected.</p></li>
+<li><p><strong>RuntimeError</strong> – if multi-class extraction failed and if the specified positive label within the application
+    config cannot be found in the dataset (binary classification).</p></li>
+<li><p><strong>RuntimeError</strong> – if bbox_format is not one of ‘xyxy’, ‘xywh’, or ‘cxcywh’.</p></li>
+<li><p><strong>RuntimeError</strong> – if uncertainty evaluation is active but no uncertainty information is given (regression).</p></li>
+<li><p><strong>FileNotFoundError</strong> – if file with given license_file_path cannot be found.</p></li>
+<li><p><strong>FileNotFoundError</strong> – if config is given as file path but no appropriate file can be found.</p></li>
+<li><p><strong>AttributeError</strong> – if the key ‘Key’ cannot be found at the expected location.</p></li>
+<li><p><strong>AttributeError</strong> – if the key ‘Signature’ cannot be found at the expected location.</p></li>
+<li><p><strong>AttributeError</strong> – if the key ‘ExpiryDate’ cannot be found at the expected location.</p></li>
+<li><p><strong>AttributeError</strong> – if classification or detection mode but key “distinct_classes” is missing or empty.</p></li>
+<li><p><strong>AttributeError</strong> – if classification mode but length of “distinct_classes” is lower than 2.</p></li>
+<li><p><strong>AttributeError</strong> – if binary classification mode (length of “distinct_classes” is 2) but error_msg field
+    “binary_positive_label” is missing.</p></li>
+<li><p><strong>AttributeError</strong> – if detection mode but key “task_settings/detection_bbox_format” is missing in user config.</p></li>
+<li><p><strong>AttributeError</strong> – if “fairness” evaluation is active but no sensitive feature has been specified.</p></li>
+<li><p><strong>AttributeError</strong> – if the key ‘Features’ cannot be found at the expected location.</p></li>
+<li><p><strong>AttributeError</strong> – if the requested column “labels” does not exist within the predicted dataset
+    (classification or detection).</p></li>
+<li><p><strong>AttributeError</strong> – if the requested column “predictions” does not exist within the predicted dataset (regression).</p></li>
+<li><p><strong>AttributeError</strong> – if the requested column “target” does not exist within the ground truth dataset.</p></li>
+<li><p><strong>AttributeError</strong> – if multi-class extraction failed and if the requested column “confidence” does not exist within
+    the predicted dataset (binary classification or detection).</p></li>
+<li><p><strong>AttributeError</strong> – if a sensitive feature is defined for a label that has not been found in the dataset.</p></li>
+<li><p><strong>AttributeError</strong> – if the requested column for a sensitive feature does not exist within the ground truth dataset.</p></li>
+<li><p><strong>AttributeError</strong> – if the field ‘__meta__’ within the ground truth dataset annotations is completely missing.</p></li>
+<li><p><strong>AttributeError</strong> – if the meta information provided by ‘__meta__’ is missing for a certain image.</p></li>
+<li><p><strong>ValueError</strong> – if “distinct_classes” in application config contains duplicates (classification or detection).</p></li>
+<li><p><strong>ValueError</strong> – if the data type conversion to one of “int” or “str” of column “labels” failed
+    (classification or detection).</p></li>
+<li><p><strong>ValueError</strong> – if the data type conversion to “float” of column “predictions” failed (regression).</p></li>
+<li><p><strong>ValueError</strong> – if the data type conversion to one of “int” or “str” of column “target” failed
+    (classification or detection).</p></li>
+<li><p><strong>ValueError</strong> – if the data type conversion to “float” of column “target” failed (regression).</p></li>
+<li><p><strong>ValueError</strong> – if column “variance” exists in predictions dataframe and if the data type conversion
+    to “float” of column “variance” failed (regression).</p></li>
+<li><p><strong>ValueError</strong> – if column “stddev” exists in predictions dataframe and if the data type conversion
+    to “float” of column “stddev” failed (regression).</p></li>
+<li><p><strong>ValueError</strong> – if classes are found that have not been specified by ‘distinct_classes’ in the config file.</p></li>
+<li><p><strong>ValueError</strong> – if binary classification and “binary_positive_label” can not be found in “distinct_classes”.</p></li>
+<li><p><strong>ValueError</strong> – if multi-class extraction failed and if the data type conversion to “float” of column “confidence”
+    failed within the predicted dataset (binary classification or detection).</p></li>
+<li><p><strong>ValueError</strong> – if the data type conversion to one of “int” or “str” failed for a requested sensitive feature
+    within the ground truth dataset.</p></li>
+<li><p><strong>ValueError</strong> – if a sensitive feature has a missing or invalid entry.</p></li>
+<li><p><strong>ValueError</strong> – if a sensitive feature has less than 2 distinct labels.</p></li>
+<li><p><strong>ValueError</strong> – if the image width or height information provided by ‘__meta__’ for a certain image are &lt;= 0.</p></li>
+<li><p><strong>ValueError</strong> – if bbox_format is ‘xyxy’ and xmin &gt; xmax (detection).</p></li>
+<li><p><strong>ValueError</strong> – if bbox_format is ‘xyxy’ and ymin &gt; ymax (detection).</p></li>
+<li><p><strong>ValueError</strong> – if bbox_format is ‘xywh’ or ‘cxcywh’ and width is negative (detection).</p></li>
+<li><p><strong>ValueError</strong> – if bbox_format is ‘xywh’ or ‘cxcywh’ and height is negative (detection).</p></li>
+<li><p><strong>NotImplementedError</strong> – if task is not one of “classification”, “regression”, or “detection”.</p></li>
+<li><p><strong>NotImplementedError</strong> – if the bounding box matching strategy is not one of “exclusive”, “max”.</p></li>
+<li><p><strong>TypeError</strong> – if config is neither str nor python dict.</p></li>
+<li><p><strong>TypeError</strong> – if ‘predictions’ is not type pd.DataFrame (classification or regression).</p></li>
+<li><p><strong>TypeError</strong> – if ‘annotations’ is not type pd.DataFrame (classification or regression).</p></li>
+<li><p><strong>TypeError</strong> – if ‘predictions’ is not type dict (detection).</p></li>
+<li><p><strong>TypeError</strong> – if any value in ‘predictions’ dictionary is not type pd.DataFrame (detection).</p></li>
+<li><p><strong>TypeError</strong> – if ‘annotations’ is not type dict (detection).</p></li>
+<li><p><strong>TypeError</strong> – if any value in ‘annotations’ dictionary is not type pd.DataFrame (detection).</p></li>
+<li><p><strong>SyntaxError</strong> – if the provided configuration file is not in proper YAML format.</p></li>
+<li><p><strong>SyntaxError</strong> – if the syntax of the user configuration is malformed according to
+    the required configuration schema.</p></li>
+<li><p><strong>thetiscore.errors.LicenseInvalidError</strong> – if the passed license key/signature pair is invalid.</p></li>
+<li><p><strong>thetiscore.errors.LicenseExpiredError</strong> – if the license has expired.</p></li>
+<li><p><strong>thetiscore.errors.TaskNotLicensedError</strong> – if a task is requested by the user which has not been licensed.</p></li>
+<li><p><strong>thetiscore.errors.ThetisInternalLicenseError</strong> – if an unexpected application error during
+    license verification occurred.</p></li>
+<li><p><strong>thetiscore.errors.ThetisInternalError</strong> – if an unexpected application error occurred.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="mlflow-format">
+<h2>MLflow format<a class="headerlink" href="#mlflow-format" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="thetis.thetis_mlflow">
+<span class="sig-prename descclassname"><span class="pre">thetis.</span></span><span class="sig-name descname"><span class="pre">thetis_mlflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlflow_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictions_perturbations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">license_file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">license_xml_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">license_key_and_signature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#thetis.thetis_mlflow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main function for the Thetis evaluation toolkit with added MLflow logging support. Given a ground truth dataset and
+the respective predictions by an AI model, this function examines various aspects such as performance, uncertainty
+consistency, fairness, and robustness. It supports tasks like classification, detection, and regression.</p>
+<p>You can pass the current step count via ‘mlflow_step’ to this function. The step count will be passed to
+MLflow’s ‘log_metric’ function. Refer to the documentation for more details on individual metrics.</p>
+<p>Note: You must provide one of the following arguments for license validation: <cite>license_file_path</cite>,
+<cite>license_xml_str</cite>, or <cite>license_key_and_signature</cite>.</p>
+<dl>
+<dt>Metrics:</dt><dd><p>The set of metrics passed to MLflow depends on the selection of evaluation tasks.
+The following metrics are passed to MLflow when running in <strong>classification</strong> mode:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">performance/accuracy</span></code> - Classification accuracy.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">performance/balanced_accuracy</span></code> - Balanced classification accuracy.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">performance/precision</span></code> - Classification precision.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">performance/recall</span></code> - Classification recall.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">performance/f1</span></code> - Classification F1 score (harmonic mean of precision and recall).</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/rating_score</span></code> - Rating score of classification uncertainty quality/calibration.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/ece</span></code> - Expected Calibration Error (ECE).</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/mce</span></code> - Maximum Calibration Error (MCE).</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/nll</span></code> - Negative Log Likelihood (NLL).</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/brier</span></code> - Brier Score (BS).</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fairness/rating_score</span></code> - Rating score of classification fairness.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fairness/demographic_parity_difference_score</span></code> - Demographic parity difference.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fairness/equalized_odds_difference_score</span></code> - Equalized odds difference.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">data_evaluation/rating_score</span></code> - Rating score of dataset quality.</p></li>
+</ul>
+<p>The following metrics are passed to MLflow when running in <strong>detection</strong> mode:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">performance/iou_&lt;IoU</span> <span class="pre">score&gt;/ap</span></code> - Detection Average Precision for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">performance/iou_&lt;IoU</span> <span class="pre">score&gt;/precision</span></code> - Detection precision for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">performance/iou_&lt;IoU</span> <span class="pre">score&gt;/recall</span></code> - Detection recall for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">performance/iou_&lt;IoU</span> <span class="pre">score&gt;/f1</span></code> - Detection F1 score (harmonic mean of precision and recall) for a
+certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/rating_score</span></code> - Rating score of detection uncertainty quality/calibration.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/iou_&lt;IoU</span> <span class="pre">score&gt;/ece</span></code> - Expected Calibration Error (ECE) for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/iou_&lt;IoU</span> <span class="pre">score&gt;/dece_xy</span></code> - Detection Expected Calibration Error (D-ECE) which measures
+miscalibration w.r.t. cx/cy position for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/iou_&lt;IoU</span> <span class="pre">score&gt;/dece_wh</span></code> - Detection Expected Calibration Error (D-ECE) which measures
+miscalibration width/height information for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/iou_&lt;IoU</span> <span class="pre">score&gt;/mce</span></code> - Maximum Calibration Error (MCE) for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/iou_&lt;IoU</span> <span class="pre">score&gt;/nll</span></code> - Negative Log Likelihood (NLL) for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/iou_&lt;IoU</span> <span class="pre">score&gt;/brier</span></code> - Brier Score (BS) for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fairness/rating_score</span></code> - Rating score of detection fairness.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fairness/iou_&lt;IoU</span> <span class="pre">score&gt;/demographic_parity_difference_score</span></code> - Demographic parity difference
+for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">data_evaluation/rating_score</span></code> - Rating score of dataset quality.</p></li>
+</ul>
+<p>Note: the computation of many metrics depends on the selected IoU scores. These metrics are given for any
+specified IoU score.</p>
+</dd>
+<dt>Diagrams:</dt><dd><p>The set of diagrams passed to MLflow depends on the selection of evaluation tasks.
+The following Matplotlib diagrams are passed to MLflow when running in <strong>classification</strong> mode:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">performance/confusion_matrix_fig.svg</span></code> - Classification confusion matrix showing the fraction of
+correct and false predictions w.r.t. available classes.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/uncertainty_reliability_diagram_fig.svg</span></code> - Reliability diagram in the context of
+uncertainty quality/calibration evaluation showing the miscalibration w.r.t. a certain confidence level.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fairness/selection_rate_diagram_&lt;Sensitive</span> <span class="pre">Feature&gt;_fig.svg</span></code> - Selection rate diagram showing the
+disparity in the selection rate (aka recall) w.r.t. a certain sensitive feature.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fairness/disparity_diagram_&lt;Sensitive</span> <span class="pre">Feature&gt;_fig.svg</span></code> - Performance disparity diagram showing
+the disparity in over-/underestimation w.r.t. a certain sensitive feature.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">data_evaluation/cls_ratio_dataset_fig.svg</span></code> - Bar chart showing the label distribution of ground truth
+classes within the evaluation dataset.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">data_evaluation/feature_&lt;Sensitive</span> <span class="pre">Feature&gt;_ratio_dataset_fig.svg</span></code> - Bar chart showing the label
+distribution of sensitive feature information within the evaluation dataset w.r.t. a certain sensitive
+feature.</p></li>
+</ul>
+<p>Note: the creation of some diagrams depends on the specified sensitive features (fairness evaluation).
+For multiple sensitive features, multiple diagrams are created.</p>
+<p>The following Matplotlib diagrams are passed to MLflow when running in <strong>classification</strong> mode:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">performance/bar_chart_detection_performance_iou_&lt;IoU</span> <span class="pre">score&gt;_fig.svg</span></code> - Bar chart showing the detection
+performance metrics (precision, recall, AP) for each label within the dataset and for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">performance/precision_recall_curve_iou_&lt;IoU</span> <span class="pre">score&gt;_fig.svg</span></code> - Precision-Recall curve for each label
+within the dataset and for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/uncertainty_reliability_diagram_iou_&lt;IoU</span> <span class="pre">score&gt;_fig.svg</span></code>  - Reliability diagram in the
+context of uncertainty quality/calibration evaluation showing the miscalibration w.r.t. a certain
+confidence level for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/uncertainty_reliability_diagram_xy_iou_&lt;IoU</span> <span class="pre">score&gt;_fig.svg</span></code> - Reliability diagram n the
+context of object detection uncertainty quality/calibration evaluation showing the miscalibration w.r.t.
+the <strong>cx/cy</strong> position of detected objects (as a heatmap) for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/uncertainty_reliability_diagram_wh_iou_&lt;IoU</span> <span class="pre">score&gt;_fig.svg</span></code> - Reliability diagram n the
+context of object detection uncertainty quality/calibration evaluation showing the miscalibration w.r.t.
+the <strong>width/height</strong> position of detected objects (as a heatmap) for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fairness/selection_rate_diagram_&lt;Sensitive</span> <span class="pre">Feature&gt;_iou_&lt;IoU</span> <span class="pre">score&gt;_fig.svg</span></code> - Selection rate diagram
+showing the disparity in the selection rate (aka recall) w.r.t. a certain sensitive feature
+for a certain IoU score.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">data_evaluation/target_data_distribution_fig.svg</span></code> - Heatmap showing the distribution of <strong>real target</strong>
+objects w.r.t. their cx/cy position.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">data_evaluation/pred_data_distribution_fig.svg</span></code> - Heatmap showing the distribution of <strong>predicted</strong>
+objects w.r.t. their cx/cy position.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">data_evaluation/feature_&lt;Sensitive</span> <span class="pre">Feature&gt;_ratio_dataset_fig.svg</span></code> - Bar chart showing the label
+distribution of sensitive feature information within the evaluation dataset w.r.t. a certain sensitive
+feature.</p></li>
+</ul>
+<p>Note: the computation of some diagrams depends on the selected IoU scores. These diagrams are drawn for any
+specified IoU score.</p>
+</dd>
+<dt>Artifacts:</dt><dd><p>The following artifacts are passed to MLflow:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">thetis-result.json</span></code> - Thetis result JSON with all metrics and diagrams mentioned above.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">report.pdf</span></code> - Thetis result PDF report with detailed rating scores, recommendations,
+metrics, and diagrams.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> – Application configuration options provided by the user.</p></li>
+<li><p><strong>predictions</strong> – Predictions made by the AI model.
+<strong>Classification:</strong> DataFrame with columns “labels” and “confidence”.
+<strong>Detection:</strong> Dict with DataFrame entries for each image, containing columns “labels”, “confidence”,
+and bounding box coordinates. The bounding box columns must correspond to the format specified in
+the user configuration.
+<strong>Regression:</strong> DataFrame with columns “predictions” and “stddev” (standard deviation).</p></li>
+<li><p><strong>annotations</strong> – Ground truth data.
+<strong>Classification:</strong> DataFrame with columns “target” and optionally sensitive attributes.
+<strong>Detection:</strong> Dict with DataFrame entries for each image, containing columns “target”, bounding box
+coordinates and optionally sensitive attributes. The bounding box columns must correspond to the format
+specified in the user configuration. Must also include a “__meta__” key with image metadata.
+<strong>Regression:</strong> DataFrame with columns “target” and optionally sensitive attributes.</p></li>
+<li><p><strong>mlflow_step</strong> – Optional integer with the current step count to be passed to MLflow’s “log_param” function.</p></li>
+<li><p><strong>predictions_perturbations</strong> – AI predictions for each configured perturbation type.
+The perturbation type is the key of the dictionary, and each value must have the same format as the “predictions” parameter.</p></li>
+<li><p><strong>license_file_path</strong> – Path to an XML license file to run the application.</p></li>
+<li><p><strong>license_xml_str</strong> – String representation of an XML license file to run the application.</p></li>
+<li><p><strong>license_key_and_signature</strong> – Tuple of license key and signature strings.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with the evaluation results, rating scores, and recommendations for the examined AI model.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>RuntimeError</strong> – if license_file_path is given but file path is malformed
+    (e.g., due to insufficient escaping of backslashes).</p></li>
+<li><p><strong>RuntimeError</strong> – if neither ‘license_file_path’, ‘license_xml_str’, ‘license_key_and_signature’, THETIS_LICENSE,
+    “license.dat” in working directory nor “license.dat” in user local home directory (OS specific)
+    could be found.</p></li>
+<li><p><strong>RuntimeError</strong> – if the license Key XML cannot be parsed.</p></li>
+<li><p><strong>RuntimeError</strong> – if the license Key XML cannot be parsed.</p></li>
+<li><p><strong>RuntimeError</strong> – if config is given as file path but file path is malformed
+    (e.g., due to insufficient escaping of backslashes).</p></li>
+<li><p><strong>RuntimeError</strong> – if the given language identifier is unknown or not supported.</p></li>
+<li><p><strong>RuntimeError</strong> – if the indices of the predicted and ground truth dataset do not match to each other
+    (classification or regression).</p></li>
+<li><p><strong>RuntimeError</strong> – if the arrays for predicted labels and ground truth dataset have different dtypes.</p></li>
+<li><p><strong>RuntimeError</strong> – if multi-class extraction failed and if more than 2 distinct classes are detected.</p></li>
+<li><p><strong>RuntimeError</strong> – if multi-class extraction failed and if the specified positive label within the application
+    config cannot be found in the dataset (binary classification).</p></li>
+<li><p><strong>RuntimeError</strong> – if bbox_format is not one of ‘xyxy’, ‘xywh’, or ‘cxcywh’.</p></li>
+<li><p><strong>RuntimeError</strong> – if uncertainty evaluation is active but no uncertainty information is given (regression).</p></li>
+<li><p><strong>FileNotFoundError</strong> – if file with given license_file_path cannot be found.</p></li>
+<li><p><strong>FileNotFoundError</strong> – if config is given as file path but no appropriate file can be found.</p></li>
+<li><p><strong>AttributeError</strong> – if the key ‘Key’ cannot be found at the expected location.</p></li>
+<li><p><strong>AttributeError</strong> – if the key ‘Signature’ cannot be found at the expected location.</p></li>
+<li><p><strong>AttributeError</strong> – if the key ‘ExpiryDate’ cannot be found at the expected location.</p></li>
+<li><p><strong>AttributeError</strong> – if classification or detection mode but key “distinct_classes” is missing or empty.</p></li>
+<li><p><strong>AttributeError</strong> – if classification mode but length of “distinct_classes” is lower than 2.</p></li>
+<li><p><strong>AttributeError</strong> – if binary classification mode (length of “distinct_classes” is 2) but error_msg field
+    “binary_positive_label” is missing.</p></li>
+<li><p><strong>AttributeError</strong> – if detection mode but key “task_settings/detection_bbox_format” is missing in user config.</p></li>
+<li><p><strong>AttributeError</strong> – if “fairness” evaluation is active but no sensitive feature has been specified.</p></li>
+<li><p><strong>AttributeError</strong> – if the key ‘Features’ cannot be found at the expected location.</p></li>
+<li><p><strong>AttributeError</strong> – if the requested column “labels” does not exist within the predicted dataset
+    (classification or detection).</p></li>
+<li><p><strong>AttributeError</strong> – if the requested column “predictions” does not exist within the predicted dataset (regression).</p></li>
+<li><p><strong>AttributeError</strong> – if the requested column “target” does not exist within the ground truth dataset.</p></li>
+<li><p><strong>AttributeError</strong> – if multi-class extraction failed and if the requested column “confidence” does not exist within
+    the predicted dataset (binary classification or detection).</p></li>
+<li><p><strong>AttributeError</strong> – if a sensitive feature is defined for a label that has not been found in the dataset.</p></li>
+<li><p><strong>AttributeError</strong> – if the requested column for a sensitive feature does not exist within the ground truth dataset.</p></li>
+<li><p><strong>AttributeError</strong> – if the field ‘__meta__’ within the ground truth dataset annotations is completely missing.</p></li>
+<li><p><strong>AttributeError</strong> – if the meta information provided by ‘__meta__’ is missing for a certain image.</p></li>
+<li><p><strong>ValueError</strong> – if “distinct_classes” in application config contains duplicates (classification or detection).</p></li>
+<li><p><strong>ValueError</strong> – if the data type conversion to one of “int” or “str” of column “labels” failed
+    (classification or detection).</p></li>
+<li><p><strong>ValueError</strong> – if the data type conversion to “float” of column “predictions” failed (regression).</p></li>
+<li><p><strong>ValueError</strong> – if the data type conversion to one of “int” or “str” of column “target” failed
+    (classification or detection).</p></li>
+<li><p><strong>ValueError</strong> – if the data type conversion to “float” of column “target” failed (regression).</p></li>
+<li><p><strong>ValueError</strong> – if column “variance” exists in predictions dataframe and if the data type conversion
+    to “float” of column “variance” failed (regression).</p></li>
+<li><p><strong>ValueError</strong> – if column “stddev” exists in predictions dataframe and if the data type conversion
+    to “float” of column “stddev” failed (regression).</p></li>
+<li><p><strong>ValueError</strong> – if classes are found that have not been specified by ‘distinct_classes’ in the config file.</p></li>
+<li><p><strong>ValueError</strong> – if binary classification and “binary_positive_label” can not be found in “distinct_classes”.</p></li>
+<li><p><strong>ValueError</strong> – if multi-class extraction failed and if the data type conversion to “float” of column “confidence”
+    failed within the predicted dataset (binary classification or detection).</p></li>
+<li><p><strong>ValueError</strong> – if the data type conversion to one of “int” or “str” failed for a requested sensitive feature
+    within the ground truth dataset.</p></li>
+<li><p><strong>ValueError</strong> – if a sensitive feature has a missing or invalid entry.</p></li>
+<li><p><strong>ValueError</strong> – if a sensitive feature has less than 2 distinct labels.</p></li>
+<li><p><strong>ValueError</strong> – if the image width or height information provided by ‘__meta__’ for a certain image are &lt;= 0.</p></li>
+<li><p><strong>ValueError</strong> – if bbox_format is ‘xyxy’ and xmin &gt; xmax (detection).</p></li>
+<li><p><strong>ValueError</strong> – if bbox_format is ‘xyxy’ and ymin &gt; ymax (detection).</p></li>
+<li><p><strong>ValueError</strong> – if bbox_format is ‘xywh’ or ‘cxcywh’ and width is negative (detection).</p></li>
+<li><p><strong>ValueError</strong> – if bbox_format is ‘xywh’ or ‘cxcywh’ and height is negative (detection).</p></li>
+<li><p><strong>NotImplementedError</strong> – if task is not one of “classification”, “regression”, or “detection”.</p></li>
+<li><p><strong>NotImplementedError</strong> – if the bounding box matching strategy is not one of “exclusive”, “max”.</p></li>
+<li><p><strong>TypeError</strong> – if config is neither str nor python dict.</p></li>
+<li><p><strong>TypeError</strong> – if ‘predictions’ is not type pd.DataFrame (classification or regression).</p></li>
+<li><p><strong>TypeError</strong> – if ‘annotations’ is not type pd.DataFrame (classification or regression).</p></li>
+<li><p><strong>TypeError</strong> – if ‘predictions’ is not type dict (detection).</p></li>
+<li><p><strong>TypeError</strong> – if any value in ‘predictions’ dictionary is not type pd.DataFrame (detection).</p></li>
+<li><p><strong>TypeError</strong> – if ‘annotations’ is not type dict (detection).</p></li>
+<li><p><strong>TypeError</strong> – if any value in ‘annotations’ dictionary is not type pd.DataFrame (detection).</p></li>
+<li><p><strong>SyntaxError</strong> – if the provided configuration file is not in proper YAML format.</p></li>
+<li><p><strong>SyntaxError</strong> – if the syntax of the user configuration is malformed according to
+    the required configuration schema.</p></li>
+<li><p><strong>thetiscore.errors.LicenseInvalidError</strong> – if the passed license key/signature pair is invalid.</p></li>
+<li><p><strong>thetiscore.errors.LicenseExpiredError</strong> – if the license has expired.</p></li>
+<li><p><strong>thetiscore.errors.TaskNotLicensedError</strong> – if a task is requested by the user which has not been licensed.</p></li>
+<li><p><strong>thetiscore.errors.ThetisInternalLicenseError</strong> – if an unexpected application error during
+    license verification occurred.</p></li>
+<li><p><strong>thetiscore.errors.ThetisInternalError</strong> – if an unexpected application error occurred.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="tensorboard-format">
+<h2>Tensorboard format<a class="headerlink" href="#tensorboard-format" title="Permalink to this heading">¶</a></h2>
+<p>Coming soon</p>
+</section>
+</section>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">Thetis User Guide</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="examples.html" title="Usage examples" >previous</a></li>
+        <li><a href="configuration.html" title="Configuration" >next</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

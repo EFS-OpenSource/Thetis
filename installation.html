@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Installation &mdash; Thetis User Guide</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/text.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/toggle.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '0.2.2',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/sphinx_highlight.js"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Thetis User Guide" href="index.html" />
+    <link rel="next" title="Usage examples" href="examples.html" />
+    <link rel="prev" title="Thetis user guide" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Thetis User Guide</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li><a class="reference internal" href="#issues-bugtracking">Issues &amp; bugtracking</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="index.html" title="Thetis user guide" accesskey="P">previous </a></li>
+              <li><a href="examples.html" title="Usage examples" accesskey="N">next </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+            <li class="visible-xs"><a href="_sources/installation.rst.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#issues-bugtracking">Issues &amp; bugtracking</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Preparing input data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aspects.html">Key evaluation aspects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription and pricing</a></li>
+</ul>
+
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <section id="installation">
+<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
+<p>Thetis is installed via the Python Package Index (PyPI) using Python’s PIP-Tool. Simply type</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>thetis
+</pre></div>
+</div>
+<p>to install the right version of Thetis in your Python environment. The installer will directly choose
+the right wheel for installation.</p>
+<p>You can also download a <a class="reference external" href="https://pypi.org/project/thetis/#files">pre-built Wheel of Thetis</a> and install it
+afterwards in your Python environment by typing</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>&lt;download<span class="w"> </span>folder&gt;/thetis-&lt;thetis<span class="w"> </span>version&gt;-py3-&lt;python<span class="w"> </span>tag&gt;-&lt;abi<span class="w"> </span>tag&gt;-&lt;platform<span class="w"> </span>tag&gt;.whl
+</pre></div>
+</div>
+<p>In this case, the user is responsible to download the right wheel for the desired Thetis version and the
+runtime environment that is used during application execution:</p>
+<ul class="simple">
+<li><p>&lt;thetis version&gt; describes the desired application version of Thetis.</p></li>
+<li><p>&lt;python tag&gt; describes the Python version which has been used for building the wheel (e.g., “cp38” stands for Python version 3.8).</p></li>
+<li><p>&lt;abi tag&gt; describes the Application Binary Interface (ABI) version for which the wheel has been built (e.g., “cp38” stands for Python version 3.8).</p></li>
+<li><p>&lt;platform tag&gt; describes the platform for which the application has been built (e.g, “manylinux” works for most Unix-based systems).</p></li>
+</ul>
+<section id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h2>
+<p>To get started with Thetis, follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Prepare your environment:</strong>
+Ensure you have a Python environment set up. Install Thetis using the instructions provided above.</p></li>
+<li><p><strong>Explore examples:</strong>
+Review our <a class="reference internal" href="examples.html"><span class="doc">usage examples</span></a> to understand how to use Thetis for different AI tasks.</p></li>
+<li><p><strong>Run your analysis:</strong>
+Integrate your AI model and data with Thetis, then perform the desired analysis. Refer to the detailed
+<a class="reference internal" href="api.html"><span class="doc">API documentation</span></a> and <a class="reference internal" href="configuration.html"><span class="doc">configuration options</span></a> for more information.
+Note that in the free version, only a reduced set of evaluation aspects is supported. If you need the full
+functionalities, a valid license is required.
+Please reach out to us via <a class="reference external" href="mailto:thetis&#37;&#52;&#48;efs-techhub&#46;com">thetis<span>&#64;</span>efs-techhub<span>&#46;</span>com</a>.</p></li>
+</ol>
+</section>
+<section id="issues-bugtracking">
+<h2>Issues &amp; bugtracking<a class="headerlink" href="#issues-bugtracking" title="Permalink to this heading">¶</a></h2>
+<p>If you experience any issues during installation, running, or handling Thetis, please create an issue on the
+<a class="reference external" href="https://github.com/efs-OpenSource/thetis">e:fs Github page</a> and post the provided stack trace.</p>
+</section>
+</section>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">Thetis User Guide</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="index.html" title="Thetis user guide" >previous</a></li>
+        <li><a href="examples.html" title="Usage examples" >next</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

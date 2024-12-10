@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Configuration &mdash; Thetis User Guide</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/text.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/toggle.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '0.2.2',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/sphinx_highlight.js"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Thetis User Guide" href="index.html" />
+    <link rel="next" title="Preparing input data" href="data.html" />
+    <link rel="prev" title="API documentation" href="api.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Thetis User Guide</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">Configuration</a><ul>
+<li><a class="reference internal" href="#example-configuration-file">Example configuration file</a></li>
+<li><a class="reference internal" href="#general-application-settings">General application settings</a></li>
+<li><a class="reference internal" href="#configuration-of-safety-evaluation">Configuration of safety evaluation</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="api.html" title="API documentation" accesskey="P">previous </a></li>
+              <li><a href="data.html" title="Preparing input data" accesskey="N">next </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+            <li class="visible-xs"><a href="_sources/configuration.rst.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example-configuration-file">Example configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#general-application-settings">General application settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-of-safety-evaluation">Configuration of safety evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Preparing input data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aspects.html">Key evaluation aspects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subscription.html">Subscription and pricing</a></li>
+</ul>
+
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <section id="configuration">
+<span id="id1"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h1>
+<p>Thetis needs a YAML configuration file that specifies several aspects, e.g., the task, available classes, requested
+evaluation aspects, etc. <a class="reference external" href="https://raw.githubusercontent.com/EFS-OpenSource/Thetis/refs/heads/main/examples/demo_config_classification.yaml">Download an example configuration file</a> or copy/paste the
+following configuration file. An explanation for each configuration aspect can be found below.</p>
+<section id="example-configuration-file">
+<h2>Example configuration file<a class="headerlink" href="#example-configuration-file" title="Permalink to this heading">¶</a></h2>
+<p>A YAML configuration structure for Thetis has the following general form:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># meta data of model predictions and dataset</span>
+<span class="nt">meta</span><span class="p">:</span>
+
+<span class="w">  </span><span class="nt">model</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;model</span><span class="nv"> </span><span class="s">name&gt;&quot;</span>
+<span class="w">    </span><span class="nt">revision</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;model</span><span class="nv"> </span><span class="s">revision&gt;&quot;</span>
+
+<span class="w">  </span><span class="nt">dataset</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;dataset</span><span class="nv"> </span><span class="s">name&gt;&quot;</span>
+<span class="w">    </span><span class="nt">revision</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;r1&quot;</span>
+
+
+<span class="c1"># Examination task. Can be one of: &quot;classification&quot; (binary/multi-class classification),</span>
+<span class="c1"># &quot;detection&quot; (image-based object detection) or &quot;regression&quot;</span>
+<span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;classification&quot;</span>
+
+<span class="c1"># Language of the final report. Can be one of: &quot;en&quot;, &quot;de&quot;</span>
+<span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;en&quot;</span>
+
+<span class="c1"># Task-specific settings. Required and available fields depend on the selected task.</span>
+<span class="nt">task_settings</span><span class="p">:</span>
+
+<span class="w">  </span><span class="c1"># List of distinct classes that can occur within the dataset (can only be set for classification or</span>
+<span class="w">  </span><span class="c1"># object detection). If specified then this parameter cannot be empty.</span>
+<span class="w">  </span><span class="nt">distinct_classes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;no</span><span class="nv"> </span><span class="s">person&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;person&quot;</span><span class="p p-Indicator">]</span>
+
+<span class="w">  </span><span class="c1"># In binary classification (when &#39;distinct_classes&#39; has length of 2), you must specify a positive label out of</span>
+<span class="w">  </span><span class="c1"># the list of available classes. This is important since you only give a single &quot;confidence&quot; for each prediction,</span>
+<span class="w">  </span><span class="c1"># targeting the probability of the positive class. May only be specified for binary classification.</span>
+<span class="w">  </span><span class="nt">binary_positive_label</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;person&quot;</span>
+
+<span class="w">  </span><span class="c1"># Bounding-box format. Can be one of: &quot;xyxy&quot; (xmin, ymin, xmax, ymax), &quot;xywh&quot; (xmin, ymin, width, height),</span>
+<span class="w">  </span><span class="c1"># or &quot;cxcywh&quot; (center x, center y, width, height).</span>
+<span class="w">  </span><span class="nt">detection_bbox_format</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;xyxy&quot;</span>
+
+<span class="w">  </span><span class="c1"># List with IoU scores used for object detection evaluation</span>
+<span class="w">  </span><span class="c1"># Note: the IoU score &quot;0.5&quot; is always active for the evaluation. You can specify more IoU scores if you want</span>
+<span class="w">  </span><span class="nt">detection_bbox_ious</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.75</span><span class="p p-Indicator">]</span>
+
+<span class="w">  </span><span class="c1"># String with bounding box matching strategy. Must be one of: &quot;exclusive&quot;, &quot;max&quot;.</span>
+<span class="w">  </span><span class="nt">detection_bbox_matching</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;exclusive&quot;</span>
+
+<span class="w">  </span><span class="c1"># Set to true if the bounding boxes are also inferred with a separate variance score (currently not supported)</span>
+<span class="w">  </span><span class="nt">detection_bbox_probabilistic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="w">  </span><span class="c1"># In detection mode, it is possible to set a confidence threshold</span>
+<span class="w">  </span><span class="c1"># to discard blurry predictions with low confidence</span>
+<span class="w">  </span><span class="nt">detection_confidence_thr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.2</span>
+
+<span class="w">  </span><span class="c1"># In detection mode it is possible to specify a tolerance zone outside image bounds within which clipping is applied. The boxes within these zones are</span>
+<span class="w">  </span><span class="c1"># clipped to the image dimensions. For boxes outside the specified tolerance, an error is raised instead.</span>
+<span class="w">  </span><span class="nt">detection_bbox_clipping</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20%</span>
+
+<span class="c1"># Settings for the data evaluation routine</span>
+<span class="nt">data_evaluation</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">examine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="c1"># Settings for the AI baseline performance evaluation (which should be always performed!)</span>
+<span class="nt">performance</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">examine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="c1"># Settings for the evaluation of confidence calibration</span>
+<span class="nt">uncertainty</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">examine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="w">  </span><span class="c1"># Number of bins used for ECE calculation, required for classification and detection evaluation</span>
+<span class="w">  </span><span class="nt">ece_bins </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+
+<span class="w">  </span><span class="c1"># During ECE/D-ECE computation, bins with a number of samples less than this threshold are ignored</span>
+<span class="w">  </span><span class="c1"># Required for classification and detection evaluation</span>
+<span class="w">  </span><span class="nt">ece_sample_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+
+<span class="w">  </span><span class="c1"># Number of bins used for D-ECE calculation (object detection), required for detection evaluation</span>
+<span class="w">  </span><span class="nt">dece_bins</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+
+<span class="c1"># Settings for the evaluation of model fairness</span>
+<span class="nt">fairness</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">examine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="w">  </span><span class="c1"># Specify sensitive attributes that are used for fairness evaluation. For each of these attributes,</span>
+<span class="w">  </span><span class="c1"># you need to specify the classes for which the attributes are actually valid (out of the labels</span>
+<span class="w">  </span><span class="c1"># within &#39;distinct_classes&#39; list). You can also leave it empty or type &quot;all&quot; to mark validity for all classes.</span>
+<span class="w">  </span><span class="nt">sensitive_attributes</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">gender</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;no</span><span class="nv"> </span><span class="s">person&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;person&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;all&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="general-application-settings">
+<h2>General application settings<a class="headerlink" href="#general-application-settings" title="Permalink to this heading">¶</a></h2>
+<p>In the following, we give a detailed overview about all possible general configuration settings.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Meta information settings describing the customer information, model properties, and used dataset.</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 10.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key/Specifier</p></th>
+<th class="head"><p>Dtype</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">meta/model/name</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Name of the AI model used to generate predictions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">meta/model/revision</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Revision of the AI model used to generate predictions.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">meta/dataset/name</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Name of the dataset holding the ground truth information.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">meta/dataset/revision</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Revision of the dataset holding the ground truth information.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">General application settings</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 10.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key/Specifier</p></th>
+<th class="head"><p>Dtype</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">task</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Selection of the examination task. Can be one of: “classification” (binary/multi-class classification), “detection” (image-based object detection).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">language</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Language of the final evaluation report. Can be one of: “en” (US English), “de” (German).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">task_settings/distinct_classes</span></code></p></td>
+<td><p>list of int or string</p></td>
+<td><p>List of distinct classes that can occur within the dataset. Only to be provided in case of Classification or Detection</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">task_settings/binary_positive_label</span></code></p></td>
+<td><p>int or string</p></td>
+<td><p>In binary classification (when ‘distinct_classes’ has length of 2), you must specify a positive label out of
+the list of available classes. This is important since you only give a single “confidence” for each prediction,
+targeting the probability of the positive class.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">task_settings/detection_bbox_format</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Bounding-box format of the provided boxes in object detection mode. Can be one of: “xyxy” (xmin, ymin, xmax, ymax),
+“xywh” (xmin, ymin, width, height), or “cxcywh” (center x, center y, width, height).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">task_settings/detection_bbox_ious</span></code></p></td>
+<td><p>list of float</p></td>
+<td><p>List with IoU scores (in [0, 1] interval) used for object detection evaluation.
+Note: the IoU score “0.5” is always active for the evaluation. You can specify more IoU scores if you want.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">task_settings/detection_bbox_matching</span></code></p></td>
+<td><p>string</p></td>
+<td><p>String with bounding box matching strategy within object detection evaluation. The strategy of matching the predicted bounding boxes
+with the ground truth ones must be either “exclusive,” where each prediction and each ground truth are assigned to at most a single counterpart,
+or “max,” with maximum/non-exclusive bounding box matching, where each ground truth object may have multiple predictions assigned to it.
+The default is “exclusive”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">task_settings/detection_bbox_probabilistic</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p>Currently not used.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">task_settings/detection_confidence_thr</span></code></p></td>
+<td><p>float</p></td>
+<td><p>In detection mode, it is possible to set a confidence threshold (in [0, 1] interval) to discard blurry predictions with low confidence.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">task_settings/detection_bbox_clipping</span></code></p></td>
+<td><p>int</p></td>
+<td><p>In detection mode, it is possible to specify a tolerance zone outside the image in case of boxes that are out of image bounds.
+This can be ommitted, in which case no clipping is applied and an error is raised if a box is out of image bounds.
+Alternatively, it can be set to relative(relative to image width and height)% ([0-100]%) or absolute values in px ([int]px).
+These specify the dimensions outside the image, such that if any boxes extend into this tolerance zone, they will get clipped to the image dimensions.
+If boxes exceed these tolerance zones no clipping will be applied, an error will be raised instead.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="configuration-of-safety-evaluation">
+<h2>Configuration of safety evaluation<a class="headerlink" href="#configuration-of-safety-evaluation" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Configuration settings for dataset evaluation.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 10.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key/Specifier</p></th>
+<th class="head"><p>Dtype</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">data_evaluation/examine</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p>Enables/disables the data evaluation for the final rating &amp; reporting.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">Configuration settings for AI performance evaluation.</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 10.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key/Specifier</p></th>
+<th class="head"><p>Dtype</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">performance/examine</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p>Enables/disables the AI performance evaluation (e.g., accuracy, mAP, precision, recall, etc.) for the final reporting.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text">Configuration settings for uncertainty evaluation (uncertainty calibration).</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 10.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key/Specifier</p></th>
+<th class="head"><p>Dtype</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/examine</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p>Enables/disables the uncertainty evaluation (uncertainty calibration, e.g., computation of the Expected Calibration Error (ECE)) for the final rating &amp; reporting.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/ece_bins</span></code></p></td>
+<td><p>int</p></td>
+<td><p>Number of bins used for the computation of the Expected Calibration Error (ECE), Maximum Calibration Error (MCE),
+and the respective reliability diagrams. The default value is 20.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/ece_sample_threshold</span></code></p></td>
+<td><p>int</p></td>
+<td><p>Sample threshold used for the computation of the ECE, MCE, D-ECE, and the respective reliability diagrams to discard
+bins with an amount of samples below this threshold. Discarding bins with only a small amount of samples is
+recommended to stabilize the ECE/MCE computations. The default value is 10.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">uncertainty/dece_bins</span></code></p></td>
+<td><p>int</p></td>
+<td><p>Number of bins used for the computation of the Decetion Expected Calibration Error (D-ECE) (object detection only)
+and the respective reliability diagrams. The D-ECE is the counterpart of the ECE for position-dependent calibration
+evaluation of object detection tasks. The default value is 5.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-text">Configuration settings for AI fairness evaluation.</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 10.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key/Specifier</p></th>
+<th class="head"><p>Dtype</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">fairness/examine</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p>Enables/disables the AI fairness evaluation for the final rating &amp; reporting.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">fairness/sensitive_attributes/&lt;label</span> <span class="pre">name&gt;</span></code></p></td>
+<td><p>optional string or list of int/string</p></td>
+<td><p>Specify one or multiple sensitive attributes (e.g., gender or age) that are used for fairness evaluation.
+The value of this entry is a list of target classes (given by “distinct_classes” parameter) for which the
+sensitive attribute is valid. For example, if “distinct_classes” specifies labels “person” and “car”, a
+sensitive attribute for “gender” might only be valid for target label “person”. If the attribute is valid for
+all specified target labels, you can also leave the value empty or pass “all”.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">Thetis User Guide</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="api.html" title="API documentation" >previous</a></li>
+        <li><a href="data.html" title="Preparing input data" >next</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>
