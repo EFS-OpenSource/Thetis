@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "thetis"
 description = "Solution for AI system analysis regarding performance, uncertainty consistency (calibration), fairness, and other aspects relevant for regulatory compliance."
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 authors = [
     { email = "fabian.kueppers@efs-techhub.com" },
     { name = "e:fs TechHub GmbH" }

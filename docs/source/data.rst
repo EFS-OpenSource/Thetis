@@ -5,6 +5,47 @@ The Thetis evaluation library only requires the output of an AI model on a dedic
 Thus, the application requires the ground truth target labels (not the data itself!) and the according AI predictions.
 We give a detailed overview about the required data format in the following.
 
+Description
+-----------
+Thetis offers the option to also add a description of your AI solution,
+which is required for the creation of a technical documentation in accordance
+with Article 11 and Annex IV of the AI Act. These details **cannot** be
+automatically filled out and must be provided manually by the user to ensure
+the documentation's completeness and transparency.
+
+If certain fields in the description (as described below) are not filled in,
+they also remain empty in the technical documentation. Note that all keys must
+be specified in the dictionary, even if you intend to leave them empty in the
+report. In this case, select an empty character string as the value.
+
+Thetis expects a description in form of a dictionary with the following points
+(expected keywords are given in parentheses):
+    * title of your AI solution ("title"),
+    * model provider ("issuer"),
+    * internal contact person ("contact_intern"),
+    * external contact person ("contact_extern"),
+    * purpose of the model ("purpose"),
+    * dependencies ("requirements"),
+    * forms of distribution ("forms"),
+    * hardware details ("hardware") and
+    * UI description ("ui").
+
+An example python dictionary could look like this:
+
+.. code-block:: python
+
+    description: dict[str, str]={
+        "title": "Income Prediction (Demo)",
+        "issuer": "XYZ Demo Solutions GmbH",
+        "contact_intern": "Jon Doe",
+        "contact_extern": "Jane Doe",
+        "purpose": "The goal of this AI system is to estimate, based on demographic data, whether a person's income ...",
+        "requirements": "The system relies heavily on specific software versions and hardware requirements ...",
+        "forms": "The AI system is provided as a REST API, which can be operated in containerized environments (Docker, Kubernetes). ...",
+        "hardware": "The AI system is operated on powerful servers with ...",
+        "ui": "The system's user interface is designed so that insurance companies ...",
+    }
+
 Binary classification
 ---------------------
 In the case of binary classification, Thetis expects two instances of a `Pandas DataFrame <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html>`__ :code:`pd.DataFrame`

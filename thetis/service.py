@@ -16,6 +16,7 @@ def thetis(
         config: Union[str, os.PathLike, Dict],
         predictions: Union[pd.DataFrame, Dict[str, pd.DataFrame]],
         annotations: Union[pd.DataFrame, Dict[str, pd.DataFrame]],
+        description: Dict[str, str] = None,
         output_dir: Optional[str] = None,
         predictions_perturbations: None = None,
         license_file_path: Union[str, os.PathLike] = None,
@@ -45,6 +46,12 @@ def thetis(
             coordinates and optionally sensitive attributes. The bounding box columns must correspond to the format
             specified in the user configuration. Must also include a "__meta__" key with image metadata.
             **Regression:** DataFrame with columns "target" and optionally sensitive attributes.
+        description: dict containing a description of your AI solution required for creating a technical documentation
+            in accordance with Article 11 and Annex IV of the AI Act. The data entered here includes the title,
+            provider, contact person (intern), contact person (extern), purpose, requirements, forms of distribution,
+            hardware details and a UI description. These details cannot be automatically filled out and must be provided
+            manually to ensure the documentation's completeness and transparency. If certain fields in the descriptions
+            are not filled in, they also remain empty in the technical documentation.
         output_dir: Path to the output directory where the PDF report will be stored. Default is None.
         predictions_perturbations: AI predictions for each configured perturbation type.
         license_file_path: Path to an XML license file to run the application.
@@ -131,6 +138,9 @@ def thetis(
         TypeError: if any value in 'predictions' dictionary is not type pd.DataFrame (detection).
         TypeError: if 'annotations' is not type dict (detection).
         TypeError: if any value in 'annotations' dictionary is not type pd.DataFrame (detection).
+        TypeError: if 'description' is not type dict
+        TypeError: if 'description' values are not type str
+        KeyError: if 'description' has unexpected or missing keys
         SyntaxError: if the provided configuration file is not in proper YAML format.
         SyntaxError: if the syntax of the user configuration is malformed according to
             the required configuration schema.
@@ -146,6 +156,7 @@ def thetis(
         config=config,
         predictions=predictions,
         annotations=annotations,
+        description=description,
         output_dir=output_dir,
         predictions_perturbations=predictions_perturbations,
         license_file_path=license_file_path,
